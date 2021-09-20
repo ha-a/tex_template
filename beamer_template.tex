@@ -1,0 +1,143 @@
+% upLaTeX
+
+\documentclass[9pt,xcolor=dvipsnames,dvipdfmx]{beamer}
+\input{beamer_settings.tex}
+%==============================================================================
+%==============================================================================
+%==============================================================================
+
+\title{Title}
+\subtitle{Sub Title}
+\author[H.Asakura]{Hibiki Asakura}
+\institute[Kyoto Univ.]{Kyoto University}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}[noframenumbering]
+  \titlepage
+\end{frame}
+
+%==============================================================================
+%==============================================================================
+\section*{Table of Contents}
+
+\begin{frame}{目次}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+%==============================================================================
+%==============================================================================
+\section{First Section}
+\subsection{Sub 1}
+
+\begin{frame}[label=1-1frame]{\subsecname}
+\begin{block}{block title}
+    ブロック環境
+\end{block}
+\begin{alertblock}{alert block title}
+    アラートブロック環境
+\end{alertblock}
+\alert{alert}\\
+\blert{blert}
+\begin{exampleblock}{example block title}
+    例ブロック環境
+\end{exampleblock}
+\begin{theorem}[theorem title]
+    定理環境
+\end{theorem}
+\begin{definition}[definition title]
+    定義環境
+\end{definition}
+\end{frame}
+
+%==============================================================================
+\subsection{Sub 2}
+
+\begin{frame}[label=1-2frame]{Tikz\citep{Asakura(2021)}}
+\begin{figure}[hb]
+    \centering
+    \begin{tikzpicture}
+        \draw[->,>=stealth,semithick] (-3.3,0)--(3.3,0)node[below]{$x$}; %x軸
+        \draw[->,>=stealth,semithick] (0,-0.5)--(0,3)node[right]{$y$}; %y軸
+        \draw (0,0)node[below right]{$0$}; %原点
+        \draw[structure.fg,very thick,domain=-3:3,samples=50] plot(\x,{6/sqrt(2*pi)*exp(-pow(\x,2)/2)});
+        \draw (1.5,2)node{$y=f(x)$};
+    \end{tikzpicture}
+    \caption{function $f(x)$}
+    \label{fig_label}
+\end{figure}
+\end{frame}
+
+%==============================================================================
+%==============================================================================
+\section{Second Section}
+\subsection{Algorithm}
+
+\begin{frame}[label=2-1frame]{\subsecname}%\citep{Asakura(2021)}}
+\begin{figure}[!t]
+\begin{algorithm}[H]
+    \caption{Caption}
+    \label{algo_label}
+    \begin{algorithmic}[1]    %行番号をつけないときは[1]は不要
+        \REQUIRE Input
+        \ENSURE Output
+        \STATE hoge
+        \STATE \alert{HOGEHOGE}
+        \FOR{$i=1$ to $N$}
+            \STATE $x \leftarrow x+1$
+        \ENDFOR \\
+        \RETURN HoGe
+    \end{algorithmic}
+\end{algorithm}
+\end{figure}
+\end{frame}
+
+%==============================================================================
+%==============================================================================
+\section*{References}
+
+\begin{frame}[t,allowframebreaks,noframenumbering]{References}
+    \renewcommand{\refname}{References}
+    \bibliography{ref}
+\end{frame}
+
+% total frame number はここまで
+%==============================================================================
+%==============================================================================
+%==============================================================================
+% これ以降もページカウントは続ける
+
+\beginbackup
+\appendix
+
+%==============================================================================
+%==============================================================================
+\section*{Table of Contents of Appendices}
+
+\begin{frame}{\secname}
+    \tableofcontents[hideallsubsections,firstsection=3]
+\end{frame}
+
+%==============================================================================
+%==============================================================================
+\section{First Appendix Section}
+\subsection{Sub App 1}
+
+\begin{frame}{\subsecname}
+\end{frame}
+
+%==============================================================================
+\subsection{againframe}
+\againframe<2>{1-1frame}
+
+%==============================================================================
+%==============================================================================
+\section{Second Appendix Section}
+\begin{frame}{\secname}
+    \TeX
+\end{frame}
+
+\backupend
+
+\end{document}
