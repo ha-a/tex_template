@@ -14,14 +14,14 @@
 % \usepackage{mathpazo}
 % \usepackage[utopia]{mathdesign}
 
-% \renewcommand{\familydefault}{\sfdefault}     % 英文をサンセリフ体に
-% \usefonttheme[onlymath]{serif}                % 数式のみセリフ体に
+% \renewcommand{\familydefault}{\sfdefault}    % 英文をサンセリフ体に
+% \usefonttheme[onlymath]{serif}               % 数式のみセリフ体に
 \usefonttheme{serif}
-\usepackage[deluxe,uplatex,expert]{otf}     % 日本語多ウェイト化
-% \usepackage[noto-otc]{pxchfon}              % Noto CJK JPを指定
-\usepackage{pxchfon}              % Noto CJK JPを指定
-\usepackage{pxjahyper}                      % PDF目次文字化け回避(platexでは不要)
-% \renewcommand{\kanjifamilydefault}{\gtdefault}    % 日本語をゴシック体に
+\usepackage[deluxe,uplatex,expert]{otf}      % 日本語多ウェイト化
+% \usepackage[noto-otc]{pxchfon}               % Noto CJK JPを指定
+\usepackage{pxchfon}                         % Noto CJK JPを指定
+\usepackage{pxjahyper}                       % PDF目次文字化け回避(platexでは不要)
+% \renewcommand{\kanjifamilydefault}{\gtdefault}      % 日本語をゴシック体に
 \renewcommand{\kanjifamilydefault}{mc}              % 日本語を明朝体に
 
 \usefonttheme{structurebold}                           % タイトル部を太字
@@ -132,13 +132,13 @@
 \ifnum \insertpagenumber=1  % 表紙フッター枠のみ
     \leavevmode%
     \hbox{%
-        \begin{beamercolorbox}[wd=.333333\paperwidth , ht=2.25ex,dp=1ex,center]{author in head/foot}%
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=2.25ex,dp=1ex,center]{author in head/foot}%
             \usebeamerfont{title in head/foot}
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.333333\paperwidth , ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=2.25ex,dp=1ex,center]{title in head/foot}%
             \usebeamerfont{title in head/foot}
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.333333\paperwidth , ht=2.25ex,dp=1ex,center]{date in head/foot}%
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=2.25ex,dp=1ex,center]{date in head/foot}%
             \usebeamerfont{date in head/foot}
         \end{beamercolorbox}
     }%
@@ -146,13 +146,13 @@
 \else            % 表紙以外のページは 著者(所属) | ページ数/総ページ数 | 日付
     \leavevmode%
     \hbox{%
-        \begin{beamercolorbox}[wd=.333333\paperwidth , ht=2.25ex,dp=1ex,center]{author in head/foot}%
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=2.25ex,dp=1ex,center]{author in head/foot}%
             \usebeamerfont{title in head/foot}\insertshortauthor (\insertshortinstitute)
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.333333\paperwidth , ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=2.25ex,dp=1ex,center]{title in head/foot}%
             \usebeamerfont{title in head/foot}\insertframenumber{} / \inserttotalframenumber
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.333333\paperwidth , ht=2.25ex,dp=1ex,center]{date in head/foot}%
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=2.25ex,dp=1ex,center]{date in head/foot}%
             \usebeamerfont{date in head/foot}\insertshortdate{}
         \end{beamercolorbox}
     }%
@@ -179,10 +179,10 @@
 \ifnum \insertpagenumber=1  % 表紙ヘッダー枠のみ
     \leavevmode%
     \hbox{%
-        \begin{beamercolorbox}[wd=.5\paperwidth , ht=2.65ex,dp=1.5ex,center]{title in head/foot}%
+        \begin{beamercolorbox}[wd=.4999\paperwidth , ht=2.65ex,dp=1.5ex,right]{title in head/foot}%
             \usebeamerfont{title in head/foot}
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.5\paperwidth , ht=2.65ex,dp=1.5ex,center]{section in head/foot}%
+        \begin{beamercolorbox}[wd=.4999\paperwidth , ht=2.65ex,dp=1.5ex,left]{section in head/foot}%
             \usebeamerfont{section in head/foot}
         \end{beamercolorbox}%
     }%
@@ -190,10 +190,10 @@
 \else{\ifnum \insertframenumber > \inserttotalframenumber   % Appendix ヘッダー
     \leavevmode             % title | Appendices / section
     \hbox{%
-        \begin{beamercolorbox}[wd=.5\paperwidth , ht=2.65ex,dp=1.5ex,right]{title in head/foot}%
+        \begin{beamercolorbox}[wd=.4999\paperwidth , ht=2.65ex,dp=1.5ex,right]{title in head/foot}%
             \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3ex}
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.5\paperwidth , ht=2.65ex,dp=1.5ex,left]{section in head/foot}%
+        \begin{beamercolorbox}[wd=.4999\paperwidth , ht=2.65ex,dp=1.5ex,left]{section in head/foot}%
             \usebeamerfont{section in head/foot}\hspace*{3ex}Appendices / \insertsectionhead
         \end{beamercolorbox}%
     }%
@@ -201,10 +201,10 @@
 \else                       % 表紙以外は title | section
     \leavevmode%
     \hbox{%
-        \begin{beamercolorbox}[wd=.5\paperwidth , ht=2.65ex,dp=1.5ex,right]{title in head/foot}%
+        \begin{beamercolorbox}[wd=.4999\paperwidth , ht=2.65ex,dp=1.5ex,right]{title in head/foot}%
             \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3ex}
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.5\paperwidth , ht=2.65ex,dp=1.5ex,left]{section in head/foot}%
+        \begin{beamercolorbox}[wd=.4999\paperwidth , ht=2.65ex,dp=1.5ex,left]{section in head/foot}%
             \usebeamerfont{section in head/foot}\hspace*{3ex}\insertsectionhead
         \end{beamercolorbox}%
     }%
@@ -228,7 +228,9 @@
     \ifx\insertsubtitle\@empty      % subtitle なければ
     \else                           % subtitle あれば
         \vskip0.25em%
-        {\usebeamerfont{subtitle}\usebeamercolor{subtitle}\insertsubtitle\par}%
+        \begin{beamercolorbox}[sep=0pt,center]{author}
+            {\usebeamerfont{subtitle}\usebeamercolor{subtitle}\insertsubtitle\par}%
+        \end{beamercolorbox}
     \fi%
 
     \vskip3em\par
@@ -272,21 +274,22 @@
 
 % 弱強調 機能
 \newcommand{\blert}[1]{{\color{BlertColor}\textbf{{#1}}}}
-%赤いアンダーライン
+% 赤いアンダーライン
 \newcommand{\redunderline}[1]{\textcolor{AlertRed}{\underline{\textcolor{MainTextColor}{#1}}}}
 
 % 数式(演算子など)のスペースを詰める
-\thickmuskip=1.2\thickmuskip    % =,→ 間の余白
-\medmuskip=1.1\medmuskip        % +,- 間の余白
-\thinmuskip=1.0\thinmuskip      % … などの装飾記号の余白
-\arraycolsep=0.3\arraycolsep    % 行列を詰める
+\thickmuskip = 1.2\thickmuskip   % =,→ 間の余白
+\medmuskip   = 1.1\medmuskip     % +,- 間の余白
+\thinmuskip  = 1.0\thinmuskip    % … などの装飾記号の余白
+\arraycolsep = 0.3\arraycolsep   % 行列を詰める
 
 % 数式の上下のスペースの変更
 \AtBeginDocument{
-  \abovedisplayskip     =0.3\abovedisplayskip
-  \abovedisplayshortskip=0.5\abovedisplayshortskip
-  \belowdisplayskip     =0.5\belowdisplayskip
-  \belowdisplayshortskip=0.5\belowdisplayshortskip}
+  \abovedisplayskip      = 0.3\abovedisplayskip
+  \abovedisplayshortskip = 0.5\abovedisplayshortskip
+  \belowdisplayskip      = 0.5\belowdisplayskip
+  \belowdisplayshortskip = 0.5\belowdisplayshortskip
+}
 
 % 擬似コード記述
 \usepackage{algorithmic}
