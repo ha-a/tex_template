@@ -50,3 +50,6 @@ Thumbs.db
 
 # synctex files
 *.synctex.gz
+
+# workspace
+*.code-workspace
