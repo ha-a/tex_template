@@ -1,5 +1,9 @@
 #!/usr/bin/perl
 $latex         = 'uplatex %O -src-specials -shell-escape -interaction=nonstopmode -synctex=1 -kanji=utf8 %S';
+$luatex        = 'luatex %O -src-specials -shell-escape -interaction=nonstopmode -synctex=1 -kanji=utf8 %S';
 $bibtex        = 'upbibtex %O %B -kanji=utf8';
 $dvipdf        = 'dvipdfmx %O -o %D %S';
 $pdf_mode      = 3; # use dvipdfmx
+
+# 変更箇所検知
+$pvc_view_file_via_temporary = 0;
