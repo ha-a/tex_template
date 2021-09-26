@@ -6,4 +6,4 @@ $dvipdf        = 'dvipdfmx %O -o %D %S';
 $pdf_mode      = 3; # use dvipdfmx
 
 # 変更箇所検知
-$pvc_view_file_via_temporary = 0;
+# $pvc_view_file_via_temporary = 0;
