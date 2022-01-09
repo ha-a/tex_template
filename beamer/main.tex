@@ -1,20 +1,16 @@
-% upLaTeX
+\documentclass[unicode,9pt]{beamer}% 'unicode'が必要
 
-\documentclass[9pt,xcolor=dvipsnames,dvipdfmx]{beamer}
-\usepackage{bxdpx-beamer}
-% \includeonly{beamer_settings.tex}
 
-\input{sub/beamer_settings}
-%==============================================================================
-%==============================================================================
-%==============================================================================
-\sloppy
+\input{beamer_settings}
 
-\title{Title}
-\subtitle{Sub Title}
+\title[short title]{TITLE}
+\subtitle{SubTitle}
 \author[H.Asakura]{Hibiki Asakura}
-\institute[Kyoto Univ.]{Kyoto University}
+\institute[Kyoto U.]{Kyoto University}
 \date{\today}
+%\thesis{Kinds of Thesis}
+%\id{1025297057}
+
 
 \begin{document}
 
@@ -22,36 +18,22 @@
   \titlepage
 \end{frame}
 
-%==============================================================================
-%==============================================================================
-
-\section*{Table of Contents}
-
-\begin{frame}{目次}
-    \tableofcontents[hideallsubsections]
+\begin{frame}{Table of Contents}
+  \tableofcontents[hideallsubsections]
 \end{frame}
 
-%==============================================================================
-%==============================================================================
-
-\include{sub/section1}
-\include{sub/section2}
-
-%==============================================================================
-%==============================================================================
+\include{sections/section1}
+\include{sections/section2}
 
 \section*{References}
 
 \begin{frame}[t,allowframebreaks,noframenumbering]{References}
-    \renewcommand{\refname}{References}
-    \bibliography{ref}
+  \renewcommand{\refname}{References}
+  \bibliography{ref}
 \end{frame}
 
-% total frame number はここまで
-%==============================================================================
-%==============================================================================
-% これ以降もページカウントは続ける
-
-\include{sub/appendix.tex}
+\beginbackup
+\include{sections/appendix}
+\backupend
 
 \end{document}

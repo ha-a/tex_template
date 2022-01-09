@@ -1,3 +1,9 @@
+% !TEX root = main.tex
+
+\usepackage{luatexja}% 日本語したい
+\usepackage[ipaex]{luatexja-preset}% IPAexフォントしたい
+\renewcommand{\kanjifamilydefault}{\gtdefault}% 既定をゴシック体に
+
 % Beamerの設定
 \usetheme{CambridgeUS}      % 全体テーマ
 \useinnertheme{rectangles}  % 箇条書きスタイルとか
@@ -7,28 +13,25 @@
 
 % Beamerのフォント設定
 \usepackage[T1]{fontenc}    % おまじない
-\usepackage{fouriernc}      % New Century Schoolbook (cf. 美文書 p240)
+\usepackage{lmodern}      % New Century Schoolbook (cf. 美文書 p240)
+
 % \usepackage{fourier}
 % \usepackage[scaled=0.875]{helvet}
 % \usepackage[scaled]{couriers}
 % \usepackage{mathpazo}
 % \usepackage[utopia]{mathdesign}
 
-% \renewcommand{\familydefault}{\sfdefault}    % 英文をサンセリフ体に
-% \usefonttheme[onlymath]{serif}               % 数式のみセリフ体に
-\usefonttheme{serif}
-\usepackage[deluxe,uplatex,expert]{otf}      % 日本語多ウェイト化
-% \usepackage[noto-otc]{pxchfon}               % Noto CJK JPを指定
-\usepackage{pxchfon}                         % Noto CJK JPを指定
-\usepackage{pxjahyper}                       % PDF目次文字化け回避(platexでは不要)
-% \renewcommand{\kanjifamilydefault}{\gtdefault}      % 日本語をゴシック体に
-\renewcommand{\kanjifamilydefault}{mc}              % 日本語を明朝体に
+\usepackage[scaled]{helvet}
+%\renewcommand{\sfdefault}{phv}
+\renewcommand{\familydefault}{\sfdefault}    % 英文をサンセリフ体に
+\usefonttheme[onlymath]{serif}               % 数式のみセリフ体に
+%\usefonttheme{serif}
 
 \usefonttheme{structurebold}                           % タイトル部を太字
 \setbeamerfont{title}{size=\Large}                     % タイトル文字サイズ
 \setbeamerfont{author}{series=\bfseries,size=\large}   % 著者文字サイズ・太字
 \setbeamerfont{institute}{size=\footnotesize}          % 所属文字サイズ
-\setbeamerfont{date}{size=\small}                      % 日付文字サイズ
+\setbeamerfont{date}{size=\normalsize}                 % 日付文字サイズ
 \setbeamerfont{alerted text}{series=\bfseries}         % Alertを太字
 \setbeamerfont{section in toc}{series=\mdseries}       % 目次は太字にしない
 \setbeamerfont{frametitle}{size=\Large}                % フレームタイトル文字サイズ
@@ -98,7 +101,7 @@
         %     - subsection
         % 他 section (shaded)
         % \tableofcontents[currentsection,hideothersubsections]
-        \tableofcontents[currentsection,hideothersubsections,firstsection=3]
+        \tableofcontents[currentsection,hideothersubsections,firstsection=6]
             % Appendix の section は本編の通し番号
             % firstsection=[本編 last section number + 1]
         % 現 section
@@ -215,34 +218,61 @@
 
 % title page setting
 \makeatletter
+
+\def\thesis#1{\def\@thesis{#1}}
+\def\id#1{\def\@id{#1}}
+
+\usepackage{ifthen}
+
 \setbeamertemplate{title page}{
     \vbox{}
     \vfill
     \begingroup
     \centering
+
+    % 特別研究とか論文の区分的な？
+    \ifthenelse{\isundefined{\@thesis}}{}{
+        \begin{beamercolorbox}[sep=0pt,center]{institute}
+            {\Large \@thesis \par} 
+        \end{beamercolorbox}
+        \vskip0.4em
+    }
+    
     \hfill
-    \begin{beamercolorbox}[rounded=true,sep=1mm,shadow=true,wd=.8\hsize ,center]{block title}
+    \begin{beamercolorbox}[rounded=true,sep=1mm,shadow=true,wd=.8\hsize,center]{block title}
         {\usebeamerfont{title}\inserttitle\par}
     \end{beamercolorbox}
     \hfill\hfill
     \ifx\insertsubtitle\@empty      % subtitle なければ
     \else                           % subtitle あれば
-        \vskip0.25em%
+        \vskip0.5em%
         \begin{beamercolorbox}[sep=0pt,center]{author}
             {\usebeamerfont{subtitle}\usebeamercolor{subtitle}\insertsubtitle\par}%
         \end{beamercolorbox}
     \fi%
 
-    \vskip3em\par
-    \begin{beamercolorbox}[sep=0pt,center]{author}
-        \usebeamerfont{author}\insertauthor
-    \end{beamercolorbox}
-    \begin{beamercolorbox}[sep=8pt,center]{institute}
-        \usebeamerfont{institute}\insertinstitute
-    \end{beamercolorbox}
+    \vskip1.5em\par
     \begin{beamercolorbox}[sep=8pt,center]{date}
         \usebeamerfont{date}\underline{\insertdate}
     \end{beamercolorbox}
+    \vskip1.5em
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+        \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \ifthenelse{\isundefined{\@id}}{
+        \begin{beamercolorbox}[sep=0pt,center]{author}
+            \usebeamerfont{author}\insertauthor
+        \end{beamercolorbox}
+    }{
+        \begin{beamercolorbox}[sep=0pt,center]{author}
+            {\small 学籍番号~\@id}\hspace{5pt}\usebeamerfont{author}\insertauthor
+        \end{beamercolorbox}
+    }
+    %\ifx\@id\empty
+        
+    %\else
+        
+    %\fi
     \vskip0.5em
     {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
 
@@ -304,7 +334,7 @@
 
 % figure settings
 \usepackage{graphicx}
-\graphicspath{{figures/}}
+\graphicspath{}
 
 \setbeamertemplate{caption}[numbered]   % 図表に番号をつける
 
