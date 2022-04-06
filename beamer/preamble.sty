@@ -1,13 +1,13 @@
 % !TEX root = main.tex
 
 \usepackage{luatexja}% 日本語したい
-\usepackage[ipaex]{luatexja-preset}% IPAexフォントしたい
+%\usepackage[ipaex]{luatexja-preset}% IPAexフォントしたい
 \renewcommand{\kanjifamilydefault}{\gtdefault}% 既定をゴシック体に
 
 % Beamerの設定
-\usetheme{CambridgeUS}      % 全体テーマ
-\useinnertheme{rectangles}  % 箇条書きスタイルとか
-\usecolortheme{dolphin}     % 色テーマ
+%\usetheme{CambridgeUS}      % 全体テーマ
+%\useinnertheme{rectangles}  % 箇条書きスタイルとか
+%\usecolortheme{dolphin}     % 色テーマ
 
 %==============================================================================
 
@@ -41,6 +41,7 @@
 \setbeamerfont{date in head/foot}{size=\small,family=\ttfamily}
 \setbeamerfont{author in head/foot}{size=\small,family=\ttfamily}
 
+
 %==============================================================================
 % Beamer色設定
 \definecolor{MainTextColor}{RGB}{25,25,60}        % 本文カラー：青寄りの黒
@@ -65,6 +66,17 @@
 
 \setbeamercolor{gray box}{fg=MainTextColor,bg=gray!50!white}
 
+\setbeamercolor{author in head/foot}{use=structure,fg=white,bg=structure.fg!99!white}
+\setbeamercolor{page in head/foot}{use=structure,fg=white,bg=structure.fg!66!white}
+\setbeamercolor{date in head/foot}{use=structure,fg=black,bg=structure.fg!33!white}
+\setbeamercolor{title in head/foot}{use=structure,fg=white,bg=structure.fg!80!white}
+\setbeamercolor{section in head/foot}{use=structure,fg=white,bg=structure.fg!80!black}
+
+\setbeamercolor{frametitle}{use=structure,fg=structure.fg!90!black,bg=gray!10!white}
+
+\setbeamercolor{section in toc}{fg=MainTextColor}
+\setbeamercolor{subsection in toc}{fg=MainTextColor}
+
 % Babel (日本語の場合のみ・英語の場合は不要)
 \uselanguage{japanese}
 \languagepath{japanese}
@@ -88,6 +100,8 @@
 \setbeamertemplate{navigation symbols}{}        % 下の変なマークたちを消す
 \setbeamertemplate{enumerate item}[default]     % 単純な数字に
 \setbeamertemplate{itemize item}[triangle]      % 三角形に
+\setbeamertemplate{section in toc}[square]      % 四角形に
+\setbeamertemplate{subsection in toc}[square]
 \setbeamertemplate{blocks}[rounded]             % block は角丸
 
 
@@ -143,7 +157,7 @@
         \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{author in head/foot}%
             \usebeamerfont{author in head/foot}
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{title in head/foot}%
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{page in head/foot}%
             \usebeamerfont{page in head/foot}
         \end{beamercolorbox}%
         \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{date in head/foot}%
@@ -157,7 +171,7 @@
         \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{author in head/foot}%
             \usebeamerfont{author in head/foot}\insertshortauthor (\insertshortinstitute)
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{title in head/foot}%
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{page in head/foot}%
             \usebeamerfont{page in head/foot}\insertframenumber{} / \inserttotalframenumber
         \end{beamercolorbox}%
         \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{date in head/foot}%
