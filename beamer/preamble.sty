@@ -8,6 +8,7 @@
 %\usepackage[ipaex]{luatexja-preset}% IPAexフォントしたい
 \renewcommand{\kanjifamilydefault}{\gtdefault}% 既定をゴシック体に
 
+\usepackage{comment}
 
 %%%%%%%%%%%%%%%%%
 % Font          %
@@ -36,15 +37,12 @@
 \setbeamerfont{alerted text}{series=\bfseries}         % Alertを太字
 \setbeamerfont{section in toc}{series=\mdseries}       % 目次は太字にしない
 \setbeamerfont{frametitle}{size=\Large}                % フレームタイトル文字サイズ
-\setbeamerfont{title in head/foot}{size=\normalsize}
-\setbeamerfont{section in head/foot}{size=\normalsize}
+\setbeamerfont{title in head/foot}{size=\small}
+\setbeamerfont{section in head/foot}{size=\small}
 \setbeamerfont{page in head/foot}{size=\normalsize,family=\ttfamily}
 \setbeamerfont{date in head/foot}{size=\small,family=\ttfamily}
 \setbeamerfont{author in head/foot}{size=\small,family=\ttfamily}
 
-
-%==============================================================================
-% Beamer色設定
 
 %%%%%%%%%%%%%%%%%
 % Font Color    %
@@ -86,7 +84,7 @@
 %%%%%%%%%%%%%%%%%
 % Babel         %
 %%%%%%%%%%%%%%%%%
-% Babel (日本語の場合のみ・英語の場合は不要)
+% 日本語の場合のみ・英語の場合は不要
 
 \uselanguage{japanese}
 \languagepath{japanese}
@@ -121,16 +119,7 @@
 % margin settings
 \setbeamersize{text margin left=6mm,text margin right=6mm}
 
-% \appendix 環境もページカウント
-% ただし，total frame number は本編のみ
-\newcommand{\beginbackup}{
-   \newcounter{framenumbervorappendix}
-   \setcounter{framenumbervorappendix}{\value{framenumber}}
-}
-\newcommand{\backupend}{
-   \addtocounter{framenumbervorappendix}{-\value{framenumber}}
-   \addtocounter{framenumber}{\value{framenumbervorappendix}}
-}
+\setbeamercovered{transparent}
 
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -366,6 +355,9 @@
 
 \usepackage{subcaption}
 
+\newcommand\figref[1]{\textbf{Figure~\ref{#1}}}
+\newcommand\tabref[1]{\textbf{Table~\ref{#1}}}
+
 % 擬似コード記述
 \usepackage{algorithmic}
 \usepackage{algorithm}
@@ -392,6 +384,7 @@
     \belowdisplayshortskip = 0.5\belowdisplayshortskip
 }
 
+
 %%%%%%%%%%%%%%%%%%%%%
 % citation          %
 %%%%%%%%%%%%%%%%%%%%%
@@ -400,6 +393,24 @@
 \setcitestyle{square,aysep={},citesep={,}}  % [名前 年, 名前 年]
 \bibliographystyle{plainnat}
 
+\renewcommand{\refname}{References}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Appendix          %
+%%%%%%%%%%%%%%%%%%%%%
+
+% \appendix 環境もページカウント
+% ただし，total frame number は本編のみ
+\newcommand{\beginbackup}{
+   \newcounter{framenumbervorappendix}
+   \setcounter{framenumbervorappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumbervorappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumbervorappendix}}
+}
+
+\renewcommand{\appendixname}{Appendices}
 
 %%%%%%%%%%%%%%%%%%%%%
 % functions         %
@@ -407,7 +418,6 @@
 
 % comment 機能
 \newcommand{\notecomment}[1]{\centering\framebox{\color{magenta}{\textbf{\textit{#1}}}}}
-\usepackage{comment}
 % 弱強調 機能
 \newcommand{\blert}[1]{{\color{BlertColor}\textbf{{#1}}}}
 % 赤いアンダーライン
@@ -419,7 +429,6 @@
 % 脚注を ＊1 にする
 \renewcommand{\thefootnote}{$\ast$\arabic{footnote}}
 
-\renewcommand{\appendixname}{\texorpdfstring{\translate{Appendix}}{Appendix}}
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -427,3 +436,10 @@
 \usepackage{bm}
 \usepackage{ascmac} % screen/itembox/shadebox
 \usepackage{color}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
