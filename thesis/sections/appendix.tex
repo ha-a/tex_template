@@ -1,0 +1,40 @@
+\appendix
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+
+\renewcommand{\thesubsection}{\Alph{subsection}}
+
+\makeatletter
+	\renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+	\@addtoreset{equation}{subsection}
+
+	\renewcommand{\thefigure}{\thesubsection.\arabic{figure}}
+	\@addtoreset{figure}{subsection}
+
+	\renewcommand{\thetable}{\thesubsection.\arabic{table}}
+	\@addtoreset{table}{subsection}
+
+\makeatother
+
+\setcounter{equation}{0}
+
+%\renewcommand{\thesubsection}{\Alph{subsection}}
+\section*{\appendixname}
+\addcontentsline{toc}{section}{\appendixname}
+\addtocontents{lof}{\protect\addvspace{1em}}
+\addtocontents{lot}{\protect\addvspace{1em}}
+
+\markboth{\appendixname}{}
+
+\subsection{これが付録}
+\tblref{tbl:foo}参照．
+
+\begin{table}[hbtp]
+	\centering
+	\tblcaption{foo}
+	\label{tbl:foo}
+	\begin{tabular}{|c|c|}\hline
+		ほげほげ & hoge \\\hline
+		Hello & World \\\hline
+	\end{tabular}
+\end{table}

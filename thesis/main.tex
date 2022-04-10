@@ -1,0 +1,63 @@
+%!TEX encoding = UTF-8
+\documentclass[twoside,fleqn]{ltjsarticle}
+
+%\input{settings.tex}
+\usepackage{preamble}
+\includeonly{ 
+  sections/section1,
+  sections/section2,
+  sections/appendix, 
+}
+
+\title{TITLE}
+\entitle{
+  Sub Title
+}
+\department{department}
+\id{1025297057}
+\author{Hibiki Asakura}
+\date{\today}
+\thesis{kind of thesis}
+
+
+\begin{document}
+
+  \begin{titlepage}
+    \newgeometry{left=1cm,right=1cm}
+    \maketitle
+    \thispagestyle{empty}
+  \end{titlepage}
+  
+  % 両面
+  \cleardoublepage
+  \setcounter{page}{1}
+  \tableofcontents
+  \thispagestyle{toc}
+  
+  \cleardoublepage
+  
+  \restoregeometry
+  \fancyfootoffset{0pt}
+
+  \include*{sections/section1}
+  \include*{sections/section2}
+
+  \phantomsection
+  \addcontentsline{toc}{section}{\refname}
+  \extramarks{}{\refname}
+  %\bibliographystyle{plainnat}
+  \bibliography{ref}
+
+  \pagebreak
+  \phantomsection
+  \include{sections/appendix}
+
+  %\pagebreak
+  %\newgeometry{left=1cm,right=1cm,top=3cm,bottom=3cm}
+
+  \listoffigures
+  \listoftables
+  \thispagestyle{toc}
+  \fancyfootoffset{-1.5cm}
+  
+\end{document}
