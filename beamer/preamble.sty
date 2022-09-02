@@ -121,13 +121,12 @@
 
 \setbeamercovered{transparent}
 
-
 %%%%%%%%%%%%%%%%%%%%%
 % title page        %
 %%%%%%%%%%%%%%%%%%%%%
 
 \makeatletter
-\def\thesis#1{\def\@thesis{#1}}
+\def\conference#1{\def\@conference{#1}}
 \def\id#1{\def\@id{#1}}
 \usepackage{ifthen}
 
@@ -137,35 +136,39 @@
     \begingroup
     \centering
 
-    % 特別研究とか論文の区分的な？
-    \ifthenelse{\isundefined{\@thesis}}{}{
+    \ifthenelse{\isundefined{\@conference}}{}{
         \begin{beamercolorbox}[sep=0pt,center]{institute}
-            {\Large \@thesis \par} 
+            {\Large \@conference \par} 
         \end{beamercolorbox}
-        \vskip0.4em
+        \vskip1em
     }
     
     \hfill
-    \begin{beamercolorbox}[rounded=true,sep=1mm,shadow=true,wd=.8\hsize,center]{block title}
-        {\usebeamerfont{title}\inserttitle\par}
+    \begin{beamercolorbox}%
+        [rounded=true,sep=1mm,shadow=true,wd=.8\hsize,center]%
+        {block title}
+            {\usebeamerfont{title}\inserttitle\par}
     \end{beamercolorbox}
-    \hfill\hfill
-    \ifx\insertsubtitle\@empty      % subtitle なければ
-    \else                           % subtitle あれば
-        \vskip0.5em%
+    \hspace*{\fill}
+
+    \ifx\insertsubtitle\@empty
+    \else
+        \vskip.7em%
         \begin{beamercolorbox}[sep=0pt,center]{author}
-            {\usebeamerfont{subtitle}\usebeamercolor{subtitle}\insertsubtitle\par}%
+            {\usebeamerfont{subtitle}\insertsubtitle\par}%
         \end{beamercolorbox}
     \fi%
+    \vskip1.5em
 
-    \vskip1.5em\par
     \begin{beamercolorbox}[sep=8pt,center]{date}
         \usebeamerfont{date}\underline{\insertdate}
     \end{beamercolorbox}
     \vskip1.5em
+    
     \begin{beamercolorbox}[sep=8pt,center]{institute}
         \usebeamerfont{institute}\insertinstitute
     \end{beamercolorbox}
+
     \ifthenelse{\isundefined{\@id}}{
         \begin{beamercolorbox}[sep=0pt,center]{author}
             \usebeamerfont{author}\insertauthor
@@ -175,31 +178,13 @@
             {\small 学籍番号~\@id}\hspace{5pt}\usebeamerfont{author}\insertauthor
         \end{beamercolorbox}
     }
-    %\ifx\@id\empty
-        
-    %\else
-        
-    %\fi
+    
     \vskip0.5em
     {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
-
-    % 学会名入れる場合以下
-    % \vskip3em\par
-    % \begin{beamercolorbox}[sep=8pt,center]{author}
-    %     {\usebeamerfont{author}\insertauthor}~~
-    %     {\usebeamerfont{institute}(\insertinstitute)}
-    % \end{beamercolorbox}
-    % \begin{beamercolorbox}[sep=8pt,center]{conference name}
-    %     \usebeamerfont{date}Conference Name
-    % \end{beamercolorbox}
-    % \begin{beamercolorbox}[sep=0pt,center]{date}
-    %     \usebeamerfont{date}\underline{\insertdate}
-    % \end{beamercolorbox}
-    % \vskip0.5em
-    % {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
-
+    
     \endgroup
     \vfill
+    
 }
 \makeatother
 
