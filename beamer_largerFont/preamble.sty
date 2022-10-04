@@ -23,6 +23,7 @@
 % \usepackage{mathpazo}
 % \usepackage[utopia]{mathdesign}
 
+\useoutertheme[hideallsubsections]{sidebar}
 \usepackage[scaled]{helvet}
 %\renewcommand{\sfdefault}{phv}
 \renewcommand{\familydefault}{\sfdefault}    % 英文をサンセリフ体に
@@ -255,7 +256,7 @@
             \usebeamerfont{title in head/foot}\insertshorttitle
         \end{beamercolorbox}%
         \begin{beamercolorbox}[wd=.5\paperwidth , ht=11pt,dp=2pt, left, leftskip=15pt]{section in head/foot}%
-            \usebeamerfont{section in head/foot}Appxs. / \insertsectionhead
+            \usebeamerfont{section in head/foot}Appxs. / \insertsection
         \end{beamercolorbox}%
     }%
     \vskip0pt%
@@ -266,7 +267,7 @@
             \usebeamerfont{title in head/foot}\insertshorttitle
         \end{beamercolorbox}%
         \begin{beamercolorbox}[wd=.5\paperwidth , ht=11pt,dp=2pt, left, leftskip=15pt]{section in head/foot}%
-            \usebeamerfont{section in head/foot}\insertsectionhead
+            \usebeamerfont{section in head/foot}\insertsection
         \end{beamercolorbox}%
     }%
     \vskip0pt%
@@ -310,7 +311,6 @@
 \setbeamertemplate{footline}[titlefoot]
 
 
-
 %%%%%%%%%%%%%%%%%%%%%
 % Frame Title       %
 %%%%%%%%%%%%%%%%%%%%%
@@ -331,6 +331,38 @@
     \begin{beamercolorbox}[ht=.5pt,wd=\the\@tempdima]{blackbox}
     \end{beamercolorbox}%
 }
+\makeatother
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+% Sidebar           %
+%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamersize{sidebar width left=0.08\paperwidth}
+\setbeamerfont{section in sidebar}{size=\fontsize{9}{9}}
+\setbeamercolor{sidebar}{use=author in head/foot, bg=author in head/foot.bg}
+\setbeamercolor{palette sidebar secondary}{fg=white}
+\setbeamercolor{section in sidebar shaded}{fg=StructureBlue!50!white}
+\makeatletter
+\setbeamertemplate{sidebar left}
+  {
+    \ifnum \insertpagenumber=1  % 表紙ヘッダー枠のみ
+    \else  
+      \beamer@tempdim=\beamer@sidebarwidth%
+      \advance\beamer@tempdim by -6pt%
+      \vfill
+      % \insertsectionnavigation{\beamer@sidebarwidth}%
+      \insertverticalnavigation{\beamer@sidebarwidth}%
+      \vfill
+      \ifx\beamer@sidebarside\beamer@lefttext%
+      \else%
+        \usebeamercolor{normal text}%
+        \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+        \vskip2pt%
+      \fi%
+    \fi
+  }%
 \makeatother
 
 
@@ -404,6 +436,7 @@
 \bibliographystyle{plainnat}
 
 \renewcommand{\refname}{References}
+\renewcommand{\bibsection}{}
 
 %%%%%%%%%%%%%%%%%%%%%
 % Appendix          %

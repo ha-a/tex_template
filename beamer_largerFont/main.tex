@@ -1,10 +1,8 @@
-\documentclass[unicode,14pt]{beamer}% 'unicode'が必要
+\documentclass[unicode,9pt]{beamer}% 'unicode'が必要
 % font size can be 
 % 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt or 20pt
+% aspect ratio can be 16:9 by ``aspectratio=169''
 
-% \useoutertheme[hideallsubsections]{sidebar}
-
-%\input{beamer_settings}
 \usepackage{preamble}
 
 \definecolor{cyan}{cmyk}{1,0,0,0}%
@@ -32,7 +30,7 @@
   \titlepage
 \end{frame}
 
-\section*{Table of Contents}
+\section*{ToC}
 \begin{frame}{Table of Contents}
   \tableofcontents[hideallsubsections]
 \end{frame}
@@ -40,9 +38,8 @@
 \include{sections/section1}
 \include{sections/section2}
 
-\section*{References}
-
-\begin{frame}[t,allowframebreaks,noframenumbering]{References}
+\section*{Ref}
+\begin{frame}[t,allowframebreaks,noframenumbering]{\refname}
   \bibliography{ref}
 \end{frame}
 
