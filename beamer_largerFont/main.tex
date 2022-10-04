@@ -1,0 +1,53 @@
+\documentclass[unicode,14pt]{beamer}% 'unicode'が必要
+% font size can be 
+% 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt or 20pt
+
+% \useoutertheme[hideallsubsections]{sidebar}
+
+%\input{beamer_settings}
+\usepackage{preamble}
+
+\definecolor{cyan}{cmyk}{1,0,0,0}%
+% \usepackage[colorgrid,gridcolor=cyan,subgridcolor=yellow,gridunit=pt,texcoord]{eso-pic}
+
+
+\title[short title]{TITLE}
+\subtitle{SubTitle}
+\author[H.\,Asakura]{Hibiki Asakura}
+\institute[Kyoto]{Kyoto University}
+\date{\today}
+\conference{Conference Name}
+% \id{1030347641}
+
+\includeonly{
+  sections/section1,
+  sections/section2,
+  sections/appendix,
+}
+
+
+\begin{document}
+
+\begin{frame}[noframenumbering]
+  \titlepage
+\end{frame}
+
+\section*{Table of Contents}
+\begin{frame}{Table of Contents}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\include{sections/section1}
+\include{sections/section2}
+
+\section*{References}
+
+\begin{frame}[t,allowframebreaks,noframenumbering]{References}
+  \bibliography{ref}
+\end{frame}
+
+\beginbackup
+\include{sections/appendix}
+\backupend
+
+\end{document}

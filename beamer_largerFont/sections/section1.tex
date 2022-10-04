@@ -1,0 +1,36 @@
+\section{First Section}
+\subsection{Sub 1}
+
+\begin{frame}[label=1-1frame]{\subsecname}
+\begin{block}{block title}
+    ブロック環境
+\end{block}
+\begin{alertblock}{alert block title}
+    アラートブロック環境
+\end{alertblock}
+\alert{alert}\ \blert{blert}
+\begin{exampleblock}{example block title}
+    例ブロック環境
+\end{exampleblock}
+\begin{theorem}[theorem title]
+    定理環境
+\end{theorem}
+\end{frame}
+
+%==============================================================================
+\subsection{Sub 2}
+
+\begin{frame}[label=1-2frame]{Tikz\citep{Asakura(2021)}}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \draw[->,>=stealth,semithick] (-3.3,0)--(3.3,0)node[below]{$x$}; %x軸
+        \draw[->,>=stealth,semithick] (0,-0.5)--(0,3)node[right]{$y$}; %y軸
+        \draw (0,0)node[below right]{$\mathrm{O}$}; %原点
+        \draw[structure.fg,very thick,domain=-3:3,samples=50] plot(\x,{6/sqrt(2*pi)*exp(-pow(\x,2)/2)});
+        \draw (2,2)node{$y=f(x)$};
+    \end{tikzpicture}
+    \caption{function $f(x)$}
+    \label{fig_label}
+\end{figure}
+\end{frame}

@@ -30,53 +30,55 @@
 %\usefonttheme{serif}
 
 \usefonttheme{structurebold}                           % タイトル部を太字
-\setbeamerfont{title}{size=\Large}                     % タイトル文字サイズ
-\setbeamerfont{author}{series=\bfseries,size=\large}   % 著者文字サイズ・太字
-\setbeamerfont{institute}{size=\footnotesize}          % 所属文字サイズ
-\setbeamerfont{date}{size=\normalsize}                 % 日付文字サイズ
+\setbeamerfont{title}{size={\fontsize{20}{20}}}                     % タイトル文字サイズ
+\setbeamerfont{subtitle}{size={\fontsize{14}{14}}}             % サブタイトル文字サイズ
+\setbeamerfont{author}{series=\bfseries,size={\fontsize{17}{17}}}   % 著者文字サイズ・太字
+\setbeamerfont{institute}{size={\fontsize{12}{12}}}                 % 所属文字サイズ
+\setbeamerfont{date}{size={\fontsize{14}{14}}}                 % 日付文字サイズ
 \setbeamerfont{alerted text}{series=\bfseries}         % Alertを太字
-\setbeamerfont{section in toc}{series=\mdseries}       % 目次は太字にしない
-\setbeamerfont{frametitle}{size=\Large}                % フレームタイトル文字サイズ
-\setbeamerfont{title in head/foot}{size=\small}
-\setbeamerfont{section in head/foot}{size=\small}
-\setbeamerfont{page in head/foot}{size=\normalsize,family=\ttfamily}
-\setbeamerfont{date in head/foot}{size=\small,family=\ttfamily}
-\setbeamerfont{author in head/foot}{size=\small,family=\ttfamily}
+\setbeamerfont{section in toc}{series=\mdseries,size=\large}       % 目次は太字にしない
+\setbeamerfont{frametitle}{size={\fontsize{17}{17}}}                % フレームタイトル文字サイズ
+\setbeamerfont{title in head/foot}{size={\fontsize{11}{11}}}
+\setbeamerfont{section in head/foot}{size={\fontsize{11}{11}}}
+\setbeamerfont{author in head/foot}{size={\fontsize{11}{11}},family=\ttfamily}
+\setbeamerfont{page in head/foot}{size={\fontsize{14}{14}},family=\ttfamily}
+\setbeamerfont{date in head/foot}{size={\fontsize{11}{11}},family=\ttfamily}
 
 
 %%%%%%%%%%%%%%%%%
 % Font Color    %
 %%%%%%%%%%%%%%%%%
 
-\definecolor{MainTextColor}{RGB}{25,25,60}        % 本文カラー：青寄りの黒
-\definecolor{AlertRed}{RGB}{192, 0, 51}           % Alert：若干青込赤
-\definecolor{StructureBlue}{RGB}{0,32,91}       % Structure：青
-\colorlet{BlertColor}{blue!80!gray}               % Blert
+\definecolor{StructureBlue}{RGB}{0,32,91}         % Structure：KU blue
+\colorlet{MainTextColor}{StructureBlue!50!black}        % 本文カラー：青寄りの黒
+\colorlet{AlertRed}{StructureBlue!20!red}           % Alert：若干青込赤
+\colorlet{BlertColor}{StructureBlue!20!blue}               % Blert
 
 \setbeamercolor{structure}{fg=StructureBlue}              % 見出しカラー
-\setbeamercolor{subtitle}{use=structure,fg=structure.bg}
+\setbeamercolor{title}{fg=white, bg=StructureBlue}      
+\setbeamercolor{subtitle}{fg=StructureBlue}
 \setbeamercolor{normal text}{fg=MainTextColor}            % 本文カラー
 
-\setbeamercolor{block title}{fg=white,bg=StructureBlue!80!black}
-\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+\setbeamercolor{block title}{fg=white,bg=StructureBlue}
+\setbeamercolor{block body}{parent=normal text,use=block title, bg=block title.bg!10!bg}
 
-\setbeamercolor{alerted text}{fg=AlertRed!90!gray}    % \alert 文字カラー
-\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg!75!black}
-\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!10!bg}
+\setbeamercolor{alerted text}{fg=AlertRed}    % \alert 文字カラー
+\setbeamercolor{block title alerted}{fg=white,bg=AlertRed!75!black}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted, bg=block title alerted.bg!10!bg}
 
 \setbeamercolor{example text}{fg=StructureBlue}
-\setbeamercolor{block title example}{fg=white,bg=StructureBlue!80!black}
-\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+\setbeamercolor{block title example}{fg=white,bg=StructureBlue}
+\setbeamercolor{block body example}{parent=normal text,use=block title, bg=block title.bg!10!bg}
 
 \setbeamercolor{gray box}{fg=MainTextColor,bg=gray!50!white}
 
 \setbeamercolor{author in head/foot}{fg=white,bg=StructureBlue!99!white}
 \setbeamercolor{page in head/foot}{fg=white,bg=StructureBlue!66!white}
 \setbeamercolor{date in head/foot}{fg=black,bg=StructureBlue!33!white}
-\setbeamercolor{title in head/foot}{fg=white,bg=StructureBlue!80!white}
-\setbeamercolor{section in head/foot}{fg=white,bg=StructureBlue!80!black}
+\setbeamercolor{title in head/foot}{fg=StructureBlue!15!white,bg=StructureBlue!80!white}
+\setbeamercolor{section in head/foot}{fg=StructureBlue!15!white,bg=StructureBlue!80!black}
 
-\setbeamercolor{frametitle}{fg=StructureBlue!90!black,bg=gray!10!white}
+\setbeamercolor{frametitle}{fg=StructureBlue!80!black,bg=StructureBlue!15!white}
 
 \setbeamercolor{section in toc}{fg=MainTextColor}
 \setbeamercolor{subsection in toc}{fg=MainTextColor}
@@ -138,9 +140,9 @@
 
     \ifthenelse{\isundefined{\@conference}}{}{
         \begin{beamercolorbox}[sep=0pt,center]{institute}
-            {\Large \@conference \par} 
+            {\large \@conference \par} 
         \end{beamercolorbox}
-        \vskip1em
+        \vskip.5em
     }
     
     \hfill
@@ -153,7 +155,7 @@
 
     \ifx\insertsubtitle\@empty
     \else
-        \vskip.7em%
+        \vskip.3em%
         \begin{beamercolorbox}[sep=0pt,center]{author}
             {\usebeamerfont{subtitle}\insertsubtitle\par}%
         \end{beamercolorbox}
@@ -175,7 +177,7 @@
         \end{beamercolorbox}
     }{
         \begin{beamercolorbox}[sep=0pt,center]{author}
-            {\small 学籍番号~\@id}\hspace{5pt}\usebeamerfont{author}\insertauthor
+            {\small Student No.~\@id}\hspace{5pt}\usebeamerfont{author}\insertauthor
         \end{beamercolorbox}
     }
     
@@ -240,33 +242,31 @@
 \ifnum \insertpagenumber=1  % 表紙ヘッダー枠のみ
     \leavevmode%
     \hbox{%
-        \begin{beamercolorbox}[wd=.4999\paperwidth , ht=4.5ex,dp=1.5ex,right]{title in head/foot}%
-            \usebeamerfont{title in head/foot}
+        \begin{beamercolorbox}[wd=.5\paperwidth, ht=13pt]{title in head/foot}%
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.4999\paperwidth , ht=4.5ex,dp=1.5ex,left]{section in head/foot}%
-            \usebeamerfont{section in head/foot}
+        \begin{beamercolorbox}[wd=.5\paperwidth, ht=13pt]{section in head/foot}%
         \end{beamercolorbox}%
     }%
     \vskip0pt%
 \else{\ifnum \insertframenumber > \inserttotalframenumber   % Appendix ヘッダー
     \leavevmode             % title | Appendices / section
     \hbox{%
-        \begin{beamercolorbox}[wd=.4999\paperwidth , ht=4.5ex,dp=1.5ex,right]{title in head/foot}%
-            \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3ex}
+        \begin{beamercolorbox}[wd=.5\paperwidth , ht=11pt, dp=2pt, right, rightskip=15pt]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.4999\paperwidth , ht=4.5ex,dp=1.5ex,left]{section in head/foot}%
-            \usebeamerfont{section in head/foot}\hspace*{3ex}Appendices / \insertsectionhead
+        \begin{beamercolorbox}[wd=.5\paperwidth , ht=11pt,dp=2pt, left, leftskip=15pt]{section in head/foot}%
+            \usebeamerfont{section in head/foot}Appxs. / \insertsectionhead
         \end{beamercolorbox}%
     }%
     \vskip0pt%
 \else                       % 表紙以外は title | section
     \leavevmode%
     \hbox{%
-        \begin{beamercolorbox}[wd=.4999\paperwidth , ht=4.5ex,dp=1.5ex,right]{title in head/foot}%
-            \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3ex}
+        \begin{beamercolorbox}[wd=.5\paperwidth , ht=11pt, dp=2pt, right, rightskip=15pt]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.4999\paperwidth , ht=4.5ex,dp=1.5ex,left]{section in head/foot}%
-            \usebeamerfont{section in head/foot}\hspace*{3ex}\insertsectionhead
+        \begin{beamercolorbox}[wd=.5\paperwidth , ht=11pt,dp=2pt, left, leftskip=15pt]{section in head/foot}%
+            \usebeamerfont{section in head/foot}\insertsectionhead
         \end{beamercolorbox}%
     }%
     \vskip0pt%
@@ -280,34 +280,59 @@
 \ifnum \insertpagenumber=1  % 表紙フッター枠のみ
     \leavevmode%
     \hbox{%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{author in head/foot}%
-            \usebeamerfont{author in head/foot}
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=13pt]{author in head/foot}%
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{page in head/foot}%
-            \usebeamerfont{page in head/foot}
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=13pt]{page in head/foot}%
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{date in head/foot}%
-            \usebeamerfont{date in head/foot}
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=13pt]{date in head/foot}%
         \end{beamercolorbox}
     }%
     \vskip0pt%
 \else            % 表紙以外のページは 著者(所属) | ページ数/総ページ数 | 日付
     \leavevmode%
     \hbox{%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{author in head/foot}%
-            \usebeamerfont{author in head/foot}\insertshortauthor (\insertshortinstitute)
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=11pt, dp=2pt, center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}
+            \insertshortauthor\ (\insertshortinstitute)
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{page in head/foot}%
-            \usebeamerfont{page in head/foot}\insertframenumber{} / \inserttotalframenumber
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=11pt, dp=2pt, center]{page in head/foot}%
+            \usebeamerfont{page in head/foot}
+            \insertframenumber\,/\,\inserttotalframenumber
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=4ex,dp=1ex,center]{date in head/foot}%
-            \usebeamerfont{date in head/foot}\insertshortdate{}
+        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=11pt, dp=2pt, center]{date in head/foot}%
+            \usebeamerfont{date in head/foot}
+            \insertshortdate
         \end{beamercolorbox}
     }%
     \vskip0pt%
 \fi
 }
 \setbeamertemplate{footline}[titlefoot]
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+% Frame Title       %
+%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamercolor{blackbox}{fg=white, bg=black}
+\makeatletter
+\defbeamertemplate*{frametitle}{myownframetitle}[1][left]
+{
+    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+    \@tempdima=\textwidth%
+    \advance\@tempdima by\beamer@leftmargin%
+    \advance\@tempdima by\beamer@rightmargin%
+    \begin{beamercolorbox}[ht=15pt,dp=3pt,wd=\the\@tempdima,leftskip=10pt]{frametitle}
+        \usebeamerfont{frametitle}%
+        \strut\insertframetitle\strut\par%
+    \end{beamercolorbox}%
+    \vskip-13.5pt
+    \begin{beamercolorbox}[ht=.5pt,wd=\the\@tempdima]{blackbox}
+    \end{beamercolorbox}%
+}
+\makeatother
+
 
 %%%%%%%%%%%%%%%%%%%%%
 % Figure/Table      %
@@ -421,11 +446,6 @@
 \usepackage{bm}
 \usepackage{ascmac} % screen/itembox/shadebox
 \usepackage{xcolor}
-\definecolor{cyan}{cmyk}{1,0,0,0}%
-\definecolor{pastelblue}{cmyk}{0.5,0,0,0}%
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
