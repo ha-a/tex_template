@@ -385,6 +385,8 @@
 \usepackage{multirow}               % 縦に結合
 \renewcommand{\arraystretch}{1.2}   % 高さを少し広く
 
+\newcommand{\bhline}[1]{\noalign{\hrule height #1}}
+
 % 図と表を並べるときにうまくキャプションを付ける
 \makeatletter
     \newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
@@ -427,6 +429,8 @@
     \belowdisplayskip      = 0.5\belowdisplayskip
     \belowdisplayshortskip = 0.5\belowdisplayshortskip
 }
+
+\newcommand{\diff}{\mathrm{d}}
 
 
 %%%%%%%%%%%%%%%%%%%%%
