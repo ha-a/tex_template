@@ -15,7 +15,7 @@
 %%%%%%%%%%%%%%%%%
 
 \usepackage[T1]{fontenc}    % おまじない
-\usepackage{lmodern}      % New Century Schoolbook (cf. 美文書 p240)
+\usepackage{lmodern}        % New Century Schoolbook (cf. 美文書 p240)
 
 % \usepackage{fourier}
 % \usepackage[scaled=0.875]{helvet}
@@ -30,14 +30,14 @@
 \usefonttheme[onlymath]{serif}               % 数式のみセリフ体に
 %\usefonttheme{serif}
 
-\usefonttheme{structurebold}                           % タイトル部を太字
+\usefonttheme{structurebold}                                        % タイトル部を太字
 \setbeamerfont{title}{size={\fontsize{20}{20}}}                     % タイトル文字サイズ
-\setbeamerfont{subtitle}{size={\fontsize{14}{14}}}             % サブタイトル文字サイズ
+\setbeamerfont{subtitle}{size={\fontsize{14}{14}}}                  % サブタイトル文字サイズ
 \setbeamerfont{author}{series=\bfseries,size={\fontsize{17}{17}}}   % 著者文字サイズ・太字
 \setbeamerfont{institute}{size={\fontsize{12}{12}}}                 % 所属文字サイズ
-\setbeamerfont{date}{size={\fontsize{14}{14}}}                 % 日付文字サイズ
-\setbeamerfont{alerted text}{series=\bfseries}         % Alertを太字
-\setbeamerfont{section in toc}{series=\mdseries,size=\large}       % 目次は太字にしない
+\setbeamerfont{date}{size={\fontsize{14}{14}}}                      % 日付文字サイズ
+\setbeamerfont{alerted text}{series=\bfseries}                      % Alertを太字
+\setbeamerfont{section in toc}{series=\mdseries,size=\large}        % 目次は太字にしない
 \setbeamerfont{frametitle}{size={\fontsize{17}{17}}}                % フレームタイトル文字サイズ
 \setbeamerfont{title in head/foot}{size={\fontsize{11}{11}}}
 \setbeamerfont{section in head/foot}{size={\fontsize{11}{11}}}
@@ -50,20 +50,20 @@
 % Font Color    %
 %%%%%%%%%%%%%%%%%
 
-\definecolor{StructureBlue}{RGB}{0,32,91}         % Structure：KU blue
+\definecolor{StructureBlue}{RGB}{0,32,91}               % Structure：KU blue
 \colorlet{MainTextColor}{StructureBlue!50!black}        % 本文カラー：青寄りの黒
-\colorlet{AlertRed}{StructureBlue!20!red}           % Alert：若干青込赤
-\colorlet{BlertColor}{StructureBlue!20!blue}               % Blert
+\colorlet{AlertRed}{StructureBlue!20!red}               % Alert：若干青込赤
+\colorlet{BlertColor}{StructureBlue!20!blue}            % Blert
 
-\setbeamercolor{structure}{fg=StructureBlue}              % 見出しカラー
+\setbeamercolor{structure}{fg=StructureBlue}            % 見出しカラー
 \setbeamercolor{title}{fg=white, bg=StructureBlue}      
 \setbeamercolor{subtitle}{fg=StructureBlue}
-\setbeamercolor{normal text}{fg=MainTextColor}            % 本文カラー
+\setbeamercolor{normal text}{fg=MainTextColor}          % 本文カラー
 
 \setbeamercolor{block title}{fg=white,bg=StructureBlue}
 \setbeamercolor{block body}{parent=normal text,use=block title, bg=block title.bg!10!bg}
 
-\setbeamercolor{alerted text}{fg=AlertRed}    % \alert 文字カラー
+\setbeamercolor{alerted text}{fg=AlertRed}              % \alert 文字カラー
 \setbeamercolor{block title alerted}{fg=white,bg=AlertRed!75!black}
 \setbeamercolor{block body alerted}{parent=normal text,use=block title alerted, bg=block title alerted.bg!10!bg}
 
