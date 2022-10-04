@@ -5,8 +5,28 @@
 
 \usepackage{preamble}
 
+%%%%%%%%%%%%%%%%%%%%%%
+% Setting especially %
+%    for this slides %
+%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{./figures/}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% DEBUG              %
+%%%%%%%%%%%%%%%%%%%%%%
+
 \definecolor{cyan}{cmyk}{1,0,0,0}%
 % \usepackage[colorgrid,gridcolor=cyan,subgridcolor=yellow,gridunit=pt,texcoord]{eso-pic}
+
+\includeonly{
+  sections/section1,
+  sections/section2,
+  sections/appendix,
+}
+
+
 
 
 \title[short title]{TITLE}
@@ -17,11 +37,6 @@
 \conference{Conference Name}
 % \id{1030347641}
 
-\includeonly{
-  sections/section1,
-  sections/section2,
-  sections/appendix,
-}
 
 
 \begin{document}
