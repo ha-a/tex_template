@@ -1,0 +1,54 @@
+%!TEX encoding = UTF-8
+\documentclass[fleqn]{ltjsarticle}
+
+\usepackage{preamble}
+
+
+\pagestyle{plain}
+\pagestyle{empty}
+\setlength\parindent{0pt}
+\geometry{
+    left=2.5cm,
+    right=2.5cm,
+    top=3cm,
+    bottom=3cm
+}
+\graphicspath{
+  {figures}
+}
+
+
+
+%% for dummy text
+\usepackage[english]{babel}
+\usepackage[math]{blindtext}
+\renewcommand{\blindmarkup}[1]{\emph{#1}}
+\blindmathtrue
+
+
+\title{title}
+\department{航空宇宙工学専攻}
+\id{1030347641}
+\author{朝倉響}
+\date{\today}
+
+
+
+\begin{document}
+
+  \maketitle
+  \blindmathpaper
+  \blinddocument
+  \renewcommand{\figurename}{図}
+  \begin{figure}[bthp]
+    \centering
+    \rule{0.45\hsize}{0.1\vsize}
+    \caption{hello}
+  \end{figure}
+
+  \begin{align}
+    x=1\\x=2\\x=3
+  \end{align}
+
+  % \bibliography{ref}
+\end{document}
