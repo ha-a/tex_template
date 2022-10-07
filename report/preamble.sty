@@ -103,16 +103,7 @@
 \newcommand{\figref}[1]{\figurename\ref{#1}}
 \newcommand{\tblref}[1]{\tablename\ref{#1}}
 
-% \usepackage[pdfusetitle]{hyperref}
-% \hypersetup{
-%   unicode,
-%   luatex,
-%   pdfencoding=auto,
-%   bookmarksnumbered=true,
-%   colorlinks=false,
-%   linkbordercolor={0 0 1},
-%   hidelinks,
-% }
+
 
 %%%%%%%%%%%%%
 % NUMBERING %
@@ -173,3 +164,14 @@
 \usepackage[numbers,sort&compress]{natbib}
 \renewcommand{\refname}{参考文献}
 \bibliographystyle{unsrtnat}
+
+\usepackage[pdfusetitle]{hyperref}
+\hypersetup{
+  unicode,
+  luatex,
+  pdfencoding=auto,
+  bookmarksnumbered=true,
+  colorlinks=false,
+  linkbordercolor={0 0 1},
+  hidelinks,
+}

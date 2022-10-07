@@ -33,7 +33,6 @@
 \date{\today}
 
 
-
 \begin{document}
 
   \maketitle
@@ -43,12 +42,18 @@
   \begin{figure}[bthp]
     \centering
     \rule{0.45\hsize}{0.1\vsize}
-    \caption{hello}
+    \caption{FIGURE}
+    \label{figure}
   \end{figure}
 
   \begin{align}
-    x=1\\x=2\\x=3
+    x=1\label{equation}\\x=2\\x=3
   \end{align}
 
+  Hello, \TeX! \figref{figure}，\eqref{equation}
+
+  \[ % "地"は地球, "太"は太陽を表す識別子
+  \frac{a_{地}^3}{T_{地}^2} = G\cdot\frac{m_{太} + m_{地}}{4\pi^2}
+\]
   % \bibliography{ref}
 \end{document}
