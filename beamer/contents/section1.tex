@@ -1,3 +1,9 @@
+\documentclass[../main/beamer_template]{subfiles}
+\graphicspath{{\subfix{../contents/figures/}}}
+
+\begin{document}
+
+\setcounter{section}{0}
 \section[Sec1]{First Section}
 \subsection{Sub 1}
 
@@ -34,3 +40,13 @@
     \label{fig_label}
 \end{figure}
 \end{frame}
+
+
+\ifSubfilesClassLoaded{%
+  \begin{frame}
+    \bibliography{../ref}
+  \end{frame}
+}{}
+
+
+\end{document}

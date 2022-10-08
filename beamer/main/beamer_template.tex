@@ -3,14 +3,16 @@
 % 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt or 20pt
 % aspect ratio can be 16:9 by ``aspectratio=169''
 
-\usepackage{preamble}
+\usepackage{../preamble}
+
+\usepackage{subfiles}
 
 %%%%%%%%%%%%%%%%%%%%%%
 % Setting especially %
 %    for this slides %
 %%%%%%%%%%%%%%%%%%%%%%
 
-\graphicspath{{./figures/}}
+\graphicspath{{../contents/figures/}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -20,11 +22,11 @@
 \definecolor{cyan}{cmyk}{1,0,0,0}%
 % \usepackage[colorgrid,gridcolor=cyan,subgridcolor=yellow,gridunit=pt,texcoord]{eso-pic}
 
-\includeonly{
-  sections/section1,
-  sections/section2,
-  sections/appendix,
-}
+% \includeonly{
+%   sections/section1,
+%   sections/section2,
+%   sections/appendix,
+% }
 
 
 
@@ -45,21 +47,22 @@
   \titlepage
 \end{frame}
 
-\section*{ToC}
+\phantomsection
+% \section*{ToC}
 \begin{frame}{Table of Contents}
   \tableofcontents[hideallsubsections]
 \end{frame}
 
-\include{sections/section1}
-\include{sections/section2}
+\subfile{../contents/section1}
+\subfile{../contents/section2}
 
 \section*{Ref}
 \begin{frame}[t,allowframebreaks,noframenumbering]{\refname}
-  \bibliography{ref}
+  \bibliography{../ref}
 \end{frame}
 
 \beginbackup
-\include{sections/appendix}
+\subfile{../contents/appendix}
 \backupend
 
 \end{document}
