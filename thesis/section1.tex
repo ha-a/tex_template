@@ -1,4 +1,10 @@
-\section{最初の節}
+\documentclass[../main]{subfiles}
+
+\graphicspath{{\subfix{../figures/section1}}}
+
+\begin{document}
+
+\section{はじめの節}
 
 私はその人\citep{Asakura2021}を常に先生と呼んでいた．
 だからここでもただ先生と書くだけで本名は打ち明けない．
@@ -8,13 +14,14 @@
 よそよそしい頭文字などはとても使う気にならない．
 
 まるで\figref{fig:HolweckPump}に示すネジ溝ポンプのように．
-\pgref{eq:Boltzmann}にBoltzmann方程式を示す．
+% \pgref{eq:Boltzmann}にBoltzmann方程式を示す．
 
 \begin{figure}[b]
   \centering
   \begin{minipage}{0.6\hsize}
     \centering
     \includegraphics[width=0.7\hsize]{HolweckPump.pdf}
+    % \rule{0.45\hsize}{0.1\vsize}
     \figcaption{ネジ溝ポンプのモデル図．}
     \label{fig:HolweckPump}
   \end{minipage}
@@ -32,3 +39,10 @@
   
 \end{figure}
 
+
+\ifSubfilesClassLoaded{%
+  \bibliography{../ref}
+}{}
+
+
+\end{document}

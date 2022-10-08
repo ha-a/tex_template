@@ -1,4 +1,8 @@
-\section{次の Section }
+\documentclass[./main]{subfiles}
+\graphicspath{{\subfix{./figures/section2/}}}
+
+\begin{document}
+\section{次のSection}
 \addtocontents{lof}{\protect\addvspace{1em}}
 
 \subsection{Boltzmann方程式}
@@ -71,3 +75,10 @@ $d_m$は気体分子の直径, $\bm{\alpha}$は分子の衝突パラメータ, $
   }
   \label{fig:2-1}
 \end{figure}
+
+
+\ifSubfilesClassLoaded{%
+  \bibliography{./ref}%
+}{}
+
+\end{document}

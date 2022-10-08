@@ -1,6 +1,6 @@
 $latex = 'uplatex %O -synctex=1 -interaction=nonstopmode %S';
 $pdflatex = 'pdflatex %O -synctex=1 -interaction=nonstopmode %S';
-$lualatex = 'lualatex %O -synctex=1 -interaction=nonstopmode %S';
+$lualatex = 'lualatex %O -synctex=1 -file-line-error %S';
 $xelatex = 'xelatex %O -synctex=1 -interaction=nonstopmode %S';
 $biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
 $bibtex = 'upbibtex %O %B';

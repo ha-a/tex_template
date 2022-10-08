@@ -1,3 +1,5 @@
+% !TEX root = main.tex
+
 \usepackage{comment}
 
 %%%%%%%%%%%%%%
@@ -40,13 +42,10 @@
 
 \usepackage{geometry}
 \geometry{
-    % left=2.5cm,
-    % right=2.5cm,
-    % top=3cm,
-    % bottom=3cm,
-    hscale=0.8,
-    vscale=0.8,
-    heightrounded,% better use it
+    left=2.5cm,
+    right=2.5cm,
+    top=3cm,
+    bottom=3cm
 }
 
 \usepackage{fancyhdr}
@@ -54,6 +53,9 @@
 
 \usepackage{extramarks}
 \pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO]{\lastxmark}
+\fancyhead[LE]{\leftmark}
 %\fancyfoot[c]{\thepage}
 %\renewcommand*{\sectionmark}[1]{\extramarksleft{\thesection.\ #1}}
 %\renewcommand*{\subsectionmark}[1]{\extramarksright{\thesubsection.\ #1}}
@@ -61,7 +63,6 @@
 \renewcommand{\sectionmark}[1]{\markboth{\thesection.\ #1}{\thesection.\ #1}\extramarks{}{\thesection.\ #1}}
 \renewcommand{\subsectionmark}[1]{\extramarks{}{\thesubsection.\ #1}}
 
-\setlength{\headheight}{16.0pt}
 \fancyhf{}
 \fancyhead[LE]{\leftmark}
 \fancyhead[RO]{\lastxmark}

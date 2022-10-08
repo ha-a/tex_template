@@ -1,20 +1,11 @@
-%!TEX encoding = UTF-8
-\documentclass[twoside,fleqn]{ltjsarticle}
+\documentclass[4paper,lualatex,ja=standard,twoside,fleqn]{bxjsarticle}
 
-%\input{settings.tex}
 \usepackage{preamble}
-\includeonly{ 
-  sections/section1,
-  sections/section2,
-  sections/appendix, 
-}
 
 \title{TITLE}
-\entitle{
-  Sub Title
-}
-\department{department}
-\id{1025297057}
+\entitle{Sub Title}
+\department{\textsc{Department}}
+\id{1030347641}
 \author{Hibiki Asakura}
 \date{\today}
 \thesis{kind of thesis}
@@ -39,18 +30,18 @@
   \restoregeometry
   \fancyfootoffset{0pt}
 
-  \include*{sections/section1}
-  \include*{sections/section2}
+  \subfile{./section1}
+  \subfile{./section2}
 
   \phantomsection
   \addcontentsline{toc}{section}{\refname}
   \extramarks{}{\refname}
   %\bibliographystyle{plainnat}
-  \bibliography{ref}
+  \bibliography{./ref}
 
   \pagebreak
   \phantomsection
-  \include{sections/appendix}
+  \subfile{./appendix}
 
   %\pagebreak
   %\newgeometry{left=1cm,right=1cm,top=3cm,bottom=3cm}
