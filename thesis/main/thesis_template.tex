@@ -1,6 +1,11 @@
 \documentclass[4paper,lualatex,ja=standard,twoside,fleqn]{bxjsarticle}
 
-\usepackage{preamble}
+\usepackage{../preamble}
+\graphicspath{
+  {../contents/figures/section1/},
+  {../contents/figures/section2/},
+}
+
 
 \title{TITLE}
 \entitle{Sub Title}
@@ -30,18 +35,18 @@
   \restoregeometry
   \fancyfootoffset{0pt}
 
-  \subfile{./section1}
-  \subfile{./section2}
+  \subfile{../contents/section1}
+  \subfile{../contents/section2}
 
   \phantomsection
   \addcontentsline{toc}{section}{\refname}
   \extramarks{}{\refname}
   %\bibliographystyle{plainnat}
-  \bibliography{./ref}
+  \bibliography{../ref}
 
   \pagebreak
   \phantomsection
-  \subfile{./appendix}
+  \subfile{../contents/appendix}
 
   %\pagebreak
   %\newgeometry{left=1cm,right=1cm,top=3cm,bottom=3cm}

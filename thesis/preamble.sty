@@ -6,7 +6,6 @@
 
 \makeatletter
 
-%\def\@thesis{特別研究}
 \def\thesis#1{\def\@thesis{#1}}
 \def\id#1{\def\@id{#1}}
 \def\department#1{\def\@department{#1}}
@@ -40,41 +39,30 @@
 
 \usepackage{geometry}
 \geometry{
-    % left=2.5cm,
-    % right=2.5cm,
-    % top=3cm,
-    % bottom=3cm,
     hscale=0.8,
     vscale=0.8,
     heightrounded,% better use it
 }
 
 \usepackage{fancyhdr}
-%\pagestyle{fancy}
 
 \usepackage{extramarks}
-\pagestyle{fancy}
-%\fancyfoot[c]{\thepage}
-%\renewcommand*{\sectionmark}[1]{\extramarksleft{\thesection.\ #1}}
-%\renewcommand*{\subsectionmark}[1]{\extramarksright{\thesubsection.\ #1}}
-
 \renewcommand{\sectionmark}[1]{\markboth{\thesection.\ #1}{\thesection.\ #1}\extramarks{}{\thesection.\ #1}}
 \renewcommand{\subsectionmark}[1]{\extramarks{}{\thesubsection.\ #1}}
 
 \setlength{\headheight}{16.0pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+% 片面印刷
+% \rhead{\nouppercase{\leftmark}}
+% \lhead{}
+% \cfoot{\thepage}
+
+% 両面印刷
 \fancyhf{}
 \fancyhead[LE]{\leftmark}
 \fancyhead[RO]{\lastxmark}
-
-%\fancyhf{}
-% 片面印刷
-%\rhead{\nouppercase{\leftmark}}
-%\lhead{}
-%\cfoot{\thepage}
-
-% 両面印刷
-%\fancyhead[LE]{\leftmark}
-%\fancyhead[RO]{\rightmark}
 \fancyfoot[LE,RO]{\thepage}
 
 
@@ -183,12 +171,6 @@
 %%%%%%%%%%% 
 
 \usepackage{graphicx}
-\graphicspath{
-  {./figures}
-  {./figures/section1/},%
-  {./figures/section2/},%
-  {./figures/Appendix/},%
-}
 
 % CAPTION
 \makeatletter
@@ -228,16 +210,6 @@
 \newcommand{\figref}[1]{\figurename\ref{#1}}
 \newcommand{\tblref}[1]{\tablename\ref{#1}}
 
-\usepackage[pdfusetitle]{hyperref}
-\hypersetup{
-  unicode,
-  luatex,
-  pdfencoding=auto,
-  bookmarksnumbered=true,
-  colorlinks=false,
-  linkbordercolor={0 0 1},
-  hidelinks,
-}
 
 %%%%%%%%%%%%%
 % NUMBERING %
@@ -295,19 +267,15 @@
 \setlist{listparindent=\parindent}
 
 
-%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%
 
-\newcommand{\Kn}[0]{\mathrm{Kn}}
-\newcommand{\vw}[0]{v_\mathrm{w}}
-\newcommand{\QV}[0]{Q_\mathrm{V}}
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
 
 \renewcommand{\labelenumi}{\roman{enumi}.}
 \renewcommand{\labelitemi}{$\circ$}
 
 \newcommand{\circtext}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
-
 
 \newcommand{\capt}[3][\hsize-5em]{%
   \def\@captype{figure}%
@@ -319,6 +287,16 @@
   }
 }
 
+\usepackage[pdfusetitle]{hyperref}
+\hypersetup{
+  unicode,
+  luatex,
+  pdfencoding=auto,
+  bookmarksnumbered=true,
+  colorlinks=false,
+  linkbordercolor={0 0 1},
+  hidelinks,
+}
 
 
 %%%%%%%%%%%%%%%%
