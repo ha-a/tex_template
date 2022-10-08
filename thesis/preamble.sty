@@ -51,26 +51,33 @@
 \renewcommand{\subsectionmark}[1]{\extramarks{}{\thesubsection.\ #1}}
 
 \setlength{\headheight}{16.0pt}
-
 \pagestyle{fancy}
 \fancyhf{}
-% 片面印刷
-% \rhead{\nouppercase{\leftmark}}
-% \lhead{}
-% \cfoot{\thepage}
 
-% 両面印刷
-\fancyhf{}
-\fancyhead[LE]{\leftmark}
-\fancyhead[RO]{\lastxmark}
-\fancyfoot[LE,RO]{\thepage}
-
-
-\fancypagestyle{toc}{
-  \fancyhead{}
-  \fancyfoot[LE,RO]{\thepage}
-  \renewcommand{\headrulewidth}{0pt}
-}
+\makeatletter
+\if@twoside%
+    % twoside = true
+    \fancyhead[LE]{\firstleftmark}
+    \fancyhead[RO]{\lastxmark}
+    \fancyfoot[LE,RO]{\thepage}
+    \fancypagestyle{toc}{
+        \fancyhead{}
+        \fancyfoot[LE,RO]{\thepage}
+        \renewcommand{\headrulewidth}{0pt}
+    } 
+\else%
+    % twoside = false
+    \lhead{\firstleftmark}
+    \rhead{\lastxmark}
+    \cfoot{\thepage}
+    \fancypagestyle{toc}{
+        \rhead{}
+        \lhead{}
+        \cfoot{\thepage}
+        \renewcommand{\headrulewidth}{0pt}
+    } 
+\fi%  
+\makeatother
 
 
 %%%%%%%%%%%%%%%%%
