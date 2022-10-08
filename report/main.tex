@@ -3,7 +3,6 @@
 
 \usepackage{preamble}
 
-
 \pagestyle{plain}
 \pagestyle{empty}
 \setlength\parindent{0pt}
@@ -17,15 +16,6 @@
   {figures}
 }
 
-
-
-%% for dummy text
-\usepackage[english]{babel}
-\usepackage[math]{blindtext}
-\renewcommand{\blindmarkup}[1]{\emph{#1}}
-\blindmathtrue
-
-
 \title{title}
 \department{航空宇宙工学専攻}
 \id{1030347641}
@@ -36,9 +26,6 @@
 \begin{document}
 
   \maketitle
-  \blindmathpaper
-  \blinddocument
-  \renewcommand{\figurename}{図}
   \begin{figure}[bthp]
     \centering
     \rule{0.45\hsize}{0.1\vsize}
@@ -53,7 +40,8 @@
   Hello, \TeX! \figref{figure}，\eqref{equation}
 
   \[ % "地"は地球, "太"は太陽を表す識別子
-  \frac{a_{地}^3}{T_{地}^2} = G\cdot\frac{m_{太} + m_{地}}{4\pi^2}
-\]
+    \frac{a_{地}^3}{T_{地}^2} = G\cdot\frac{m_{太} + m_{地}}{4\pi^2}
+  \]
+
   % \bibliography{ref}
 \end{document}
