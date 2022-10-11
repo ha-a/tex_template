@@ -5,12 +5,15 @@
 - beamer (mainly for presentation)
 
 ## Usage
-use `latexmk` in VScode
-
+- `latexmk`
+- Because of using `subfiles` package, you can compile each tex files in contents directory.
 
 ## Note
+- I don't know the reason why VScode presents a lot of warnings which seems to be generated in previous lualatex process when I compile this documents with `interaction=nonstopmode`.
 ### thesis
-- Because of using `subfiles` package, you can compile contents/section.tex but temporary files (for example section.aux file) are generated in "main" directory.
+- using `LuaLaTeX` + `biber` + `latexmk`
+### report
+- useing `LuaLaTeX` + `upbibtex` + `latexmk`
 ### beamer
-- Because of using `subfiles` package, you can compile contents/section.tex but temporary files (for example section.aux file) are generated in "main" directory.
+- Because of using `subfiles` package, you can compile each tex files in contents directory.
 - A lot of `Caution "Overfull \hbox"` present. I'm thinking the reason of them are `beamercolorbox` in `head` and `foot`.
