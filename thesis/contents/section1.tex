@@ -1,13 +1,13 @@
 % +++
-% sequence = ["latex", "bibtex", "latex", "latex"]
+% sequence = ["latex", "biber", "latex"]
 % [programs.latex]
 % 	command = "lualatex"
 % 	opts = ["-synctex=1", "-file-line-error", "-interaction=nonstopmode"]
 % 	args = ["%S"]
-% [programs.bibtex]
-% 	command = "upbibtex"
+% [programs.biber]
+% 	command = "biber"
 % 	target = "../ref.bib"
-% 	args = ["%B"]
+% 	args = ["--bblencoding=utf8", "-u", "-U", "--output_safechars", "%B"]
 % +++
 
 \documentclass[../main/thesis_template]{subfiles}
@@ -18,7 +18,7 @@
 
 \section{はじめの節}
 
-私はその人\citep{Asakura2021}を常に先生と呼んでいた．
+私はその人\cite{Asakura2021}を常に先生と呼んでいた．
 だからここでもただ先生と書くだけで本名は打ち明けない．
 これは世間を憚かる遠慮というよりも，その方が私にとって自然だからである．
 私はその人の記憶を呼び起すごとに，すぐ「先生」といいたくなる．
@@ -53,7 +53,7 @@
 
 
 \ifSubfilesClassLoaded{%
-  \bibliography{../ref}
+  \printbibliography
 }{}
 
 

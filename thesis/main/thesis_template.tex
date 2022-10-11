@@ -18,6 +18,15 @@
   {../contents/figures/section2/},
 }
 
+\usepackage[%
+  backend=biber,%
+  bibencoding=utf8%
+  sorting=none,%
+  style=numeric-comp,%
+  backref=true,%
+  date=year%
+]{biblatex}
+\addbibresource{../ref.bib}
 
 \title{TITLE}
 \entitle{Sub Title}
@@ -54,7 +63,7 @@
   \addcontentsline{toc}{section}{\refname}
   \extramarks{}{\refname}
   %\bibliographystyle{plainnat}
-  \bibliography{../ref}
+  \printbibliography[title=\refname]
 
   \pagebreak
   \phantomsection
