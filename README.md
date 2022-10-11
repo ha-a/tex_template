@@ -15,5 +15,4 @@
 ### report
 - useing `LuaLaTeX` + `upbibtex` + `latexmk`
 ### beamer
-- Because of using `subfiles` package, you can compile each tex files in contents directory.
 - A lot of `Caution "Overfull \hbox"` present. I'm thinking the reason of them are `beamercolorbox` in `head` and `foot`.
