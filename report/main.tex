@@ -2,16 +2,6 @@
 
 \usepackage{preamble}
 
-% \usepackage[%
-  % backend=biber,%
-  % bibencoding=utf8%
-  % sorting=none,%
-  % style=numeric-comp,%
-  % backref=true,%
-  % date=year%
-% ]{biblatex}
-% \addbibresource{./ref.bib}
-
 
 \pagestyle{plain}
 \pagestyle{empty}
@@ -26,33 +16,16 @@
   {figures}
 }
 
-\title{title}
-\department{航空宇宙工学専攻}
-\id{1030347641}
-\author{朝倉響}
+\title{タイトル}
+\department{専攻}
+\id{id}
+\author{氏名}
 \date{\today}
 
 
 \begin{document}
 
   \maketitle
-  \begin{figure}[bthp]
-    \centering
-    \rule{0.45\hsize}{0.1\vsize}
-    \caption{FIGURE}
-    \label{figure}
-  \end{figure}
-
-  \begin{align}
-    x=1\label{equation}\\x=2\\x=3
-  \end{align}
-
-  Hello, \TeX! \figref{figure}，\eqref{equation}，\citep{sin2020passivity}
-
-  \[ % "地"は地球, "太"は太陽を表す識別子
-    \frac{a_{地}^3}{T_{地}^2} = G\cdot\frac{m_{太} + m_{地}}{4\pi^2}
-  \]
-
-  % \printbibliography
-  \bibliography{ref}
+  
+  % \bibliography{ref}
 \end{document}
