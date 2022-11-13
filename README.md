@@ -1,18 +1,20 @@
 # My LaTeX templates 
 ## Including
-- thesis (mainly for graduation thesis)
-- report (mainly for assignments of resumes)
-- beamer (mainly for presentation)
+- thesis (mainly for graduation or master's thesis)
+- report (mainly for assignments or resumes)
+- beamer (mainly for presentations)
+
+## Requirements
 
 ## Usage
 - `latexmk`
-- Because of using `subfiles` package, you can compile each tex files in contents directory.
+### thesis
+- `LuaLaTeX` + `biber`
+- Because of using `subfiles` package, you can compile each tex files.
+### report
+- `LuaLaTeX` + `upBibTeX`
 
 ## Note
 - I don't know the reason why VScode presents a lot of warnings which seems to be generated in previous lualatex process when I compile this documents with `interaction=nonstopmode`.
-### thesis
-- using `LuaLaTeX` + `biber` + `latexmk`
-### report
-- useing `LuaLaTeX` + `upbibtex` + `latexmk`
 ### beamer
 - A lot of `Caution "Overfull \hbox"` present. I'm thinking the reason of them are `beamercolorbox` in `head` and `foot`.
