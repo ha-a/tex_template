@@ -19,7 +19,6 @@
 }
 \addbibresource{../ref.bib}
 
-
 \conference{kind of thesis}
 \title{T~I~T~L~E}
 \entitle{sub title (or English title)}
@@ -54,10 +53,10 @@
   \subfile{./section2}
 
   \phantomsection
-  \addcontentsline{toc}{section}{\refname}
-  \extramarks{}{\refname}
+  \renewcommand{\bibname}{参考文献}
+  \extramarks{}{\bibname}
   %\bibliographystyle{plainnat}
-  \printbibliography[title=\refname]
+  \printbibliography[title=\bibname,heading=bibintoc]
 
   \pagebreak
   \phantomsection
