@@ -2,7 +2,7 @@
 
 # $latex     = 'uplatex  %O -synctex=1 -file-line-error -interaction=nonstopmode %S';
 # $pdflatex  = 'pdflatex %O -synctex=1 -file-line-error -interaction=nonstopmode %S';
-$lualatex  = 'lualatex %O -synctex=1 -file-line-error -interaction=batchmode %S';
+$lualatex  = 'lualatex %O -synctex=1 -file-line-error -halt-on-error %S';
 # $xelatex   = 'xelatex  %O -synctex=1 -file-line-error -interaction=nonstopmode %S';
 
 $biber     = 'biber    %O --bblencoding=utf8 -u -U --output_safechars %B';
@@ -17,5 +17,3 @@ $biber     = 'biber    %O --bblencoding=utf8 -u -U --output_safechars %B';
 
 $pvc_view_file_via_temporary = 0;
 $pdf_previewer = 'open -ga /Applications/Skim.app';
-
-$silent = 1;

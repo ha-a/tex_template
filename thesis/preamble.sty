@@ -4,34 +4,48 @@
 % TITLE PAGE %
 %%%%%%%%%%%%%%
 
+
+\usepackage{ifthen}
+
 \makeatletter
 
-\def\thesis#1{\def\@thesis{#1}}
+\def\conference#1{\def\@conference{#1}}
 \def\id#1{\def\@id{#1}}
-\def\department#1{\def\@department{#1}}
+\def\institution#1{\def\@institution{#1}}
 \def\entitle#1{\def\@entitle{#1}}
 
 \def\@maketitle{
   \vbox{}\vfill%\vspace{40mm}
 
   \begin{center}
-    {\LARGE \@thesis \par}
+    \ifthenelse{\isundefined{\@conference}}{}{\LARGE \@conference \par}
       \vspace{8mm}
     {\huge \@title \par}
       \vspace{2mm}
-    {\Large \@entitle \par}
-      \vspace{10mm}
+    \ifthenelse{\isundefined{\@entitle}}{}{\Large \@entitle \par}
+      \vspace{15mm}
     {\Large \@date\par}
-      \vspace{20mm}
-    {\large \@department \par}
+      \vspace{10mm}
+    \ifthenelse{\isundefined{\@institution}}{}{\large \@institution \par}
       \vspace{5mm}
-    {\large 学籍番号 \@id}\hspace{1cm}{\LARGE \@author}
+    \ifthenelse{\isundefined{\@id}}{}{\large 学籍番号 \@id\hspace{1cm}}{\LARGE \@author}
   \end{center}
 
   \vbox{}\vfill
 }
 
 \makeatother
+
+%%%%%%%%%%%%%%%%%
+% FONTS         %
+%%%%%%%%%%%%%%%%%
+
+\setmainfont[Ligatures=TeX]{TeX Gyre Termes}
+\setsansfont{Verdana}
+\setmonofont{NewComputerModernMono10-Book}
+\setmainjfont[BoldFont=HiraMinPro-W6]{HiraMinPro-W3}
+\setsansjfont[BoldFont=Hiragino Kaku Gothic Pro W6]{Hiragino Kaku Gothic Pro W3}
+
 
 %%%%%%%%%%%%%%%%%
 % MARGIN & PAGE %
@@ -90,7 +104,7 @@
 \renewcommand{\listtablename}{List of Tables}
 \renewcommand{\figurename}{図}
 \renewcommand{\tablename}{表}
-\renewcommand{\refname}{References}
+\renewcommand{\refname}{参考文献}
 \renewcommand{\appendixname}{付録}
 
 \renewcommand{\thesection}{\arabic{section}}
@@ -172,6 +186,7 @@
 \setlength{\columnsep}{-10pt}
 \renewcommand\cftlotprehook{\begin{multicols}{2}\setlength{\columnseprule}{.4pt}}
 \renewcommand\cftlotposthook{\end{multicols}}
+
 
 %%%%%%%%%%%
 % FIGURES %
@@ -258,12 +273,29 @@
 \newcommand{\diff}{\mathrm{d}}
 
 
+%%%%%%%%%%%%%%%%
+% BIBLIOGRAPHY %
+%%%%%%%%%%%%%%%%
+
+\usepackage[%
+  backend=biber,%
+  bibencoding=utf8%
+  sorting=none,%
+  style=numeric-comp,%
+  backref=true,%
+  date=year%
+]{biblatex}
+% \usepackage[numbers,sort&compress]{natbib}
+% \bibliographystyle{unsrtnat}
+
+
 %%%%%%%%%%%%%
 % FUNCTIONS %
 %%%%%%%%%%%%%
 
 \newcommand{\alert}[1]{\textcolor{red}{\textbf{(#1)}}}
 \newcommand{\pgref}[1]{\pageref{#1}ページ}
+\newcommand{\bhline}[1]{\noalign{\hrule height #1}}
 % \usepackage{newclude}
 \usepackage{subfiles}
 
@@ -284,15 +316,15 @@
 
 \newcommand{\circtext}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
 
-\newcommand{\capt}[3][\hsize-5em]{%
-  \def\@captype{figure}%
-  \caption[#2]{
-    \begin{minipage}[t]{#1}
-      \textbf{#2}\\
-      #3
-    \end{minipage}
-  }
-}
+% \newcommand{\capt}[3][\hsize-5em]{%
+%   \def\@captype{figure}%
+%   \caption[#2]{
+%     \begin{minipage}[t]{#1}
+%       \textbf{#2}\\
+%       #3
+%     \end{minipage}
+%   }
+% }
 
 \usepackage[pdfusetitle]{hyperref}
 \hypersetup{
@@ -305,12 +337,3 @@
   hidelinks,
 }
 
-
-%%%%%%%%%%%%%%%%
-% BIBLIOGRAPHY %
-%%%%%%%%%%%%%%%%
-% 何故かバグるのでここに置く
-
-% \usepackage[numbers,sort&compress]{natbib}
-\renewcommand{\refname}{参考文献}
-% \bibliographystyle{unsrtnat}

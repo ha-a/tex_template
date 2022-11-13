@@ -14,28 +14,22 @@
 
 \usepackage{../preamble}
 \graphicspath{
-  {../contents/figures/section1/},
-  {../contents/figures/section2/},
+  {../figures/section1/},
+  {../figures/section2/},
 }
-
-\usepackage[%
-  backend=biber,%
-  bibencoding=utf8%
-  sorting=none,%
-  style=numeric-comp,%
-  backref=true,%
-  date=year%
-]{biblatex}
 \addbibresource{../ref.bib}
 
-\title{TITLE}
-\entitle{Sub Title}
-\department{\textsc{Department}}
-\id{1030347641}
-\author{Hibiki Asakura}
-\date{\today}
-\thesis{kind of thesis}
 
+\conference{kind of thesis}
+\title{T~I~T~L~E}
+\entitle{sub title (or English title)}
+\date{\today}
+\institution{\textsc{Department}}
+% \id{ID}
+\author{Author Name}
+
+%%%%
+\usepackage{lipsum}
 
 \begin{document}
 
@@ -56,8 +50,8 @@
   \restoregeometry
   \fancyfootoffset{0pt}
 
-  \subfile{../contents/section1}
-  \subfile{../contents/section2}
+  \subfile{./section1}
+  \subfile{./section2}
 
   \phantomsection
   \addcontentsline{toc}{section}{\refname}
@@ -67,7 +61,7 @@
 
   \pagebreak
   \phantomsection
-  \subfile{../contents/appendix}
+  \subfile{./appendix}
 
   \pagebreak
   %\newgeometry{left=1cm,right=1cm,top=3cm,bottom=3cm}

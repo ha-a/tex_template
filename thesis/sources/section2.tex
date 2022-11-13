@@ -10,16 +10,34 @@
 % 	args = ["%B"]
 % +++
 
-\documentclass[../main/thesis_template]{subfiles}
-\graphicspath{{\subfix{../contents/figures/section2/}}}
+\documentclass[./main]{subfiles}
+\graphicspath{{\subfix{../figures/section2/}}}
 \setcounter{section}{1}
 
 \begin{document}
-\section{次のSection}
+\section{次の節}
 \addtocontents{lof}{\protect\addvspace{1em}}
 
+吾輩は猫である．名前はまだ無い．
+
+どこで生れたかとんと見当がつかぬ．
+何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している．
+吾輩はここで始めて人間というものを見た．
+しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ．
+この書生というのは時々我々を捕まえて煮て食うという話である．
+しかしその当時は何という考もなかったから別段恐しいとも思わなかった．
+ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである．
+掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始めであろう．
+この時妙なものだと思った感じが今でも残っている．
+第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ．
+その後猫にもだいぶ逢ったがこんな片輪には一度も出会した事がない．
+のみならず顔の真中があまりに突起している．
+そうしてその穴の中から時々ぷうぷうと煙を吹く．
+どうも咽せぽくて実に弱った．
+これが人間の飲む煙草というものである事はようやくこの頃知った．
+
 \subsection{Boltzmann方程式}
-希薄気体の支配方程式はBoltzmann方程式と呼ばれ, 外力がない場合には次のように表される．
+希薄気体の支配方程式はBoltzmann方程式と呼ばれ, 外力がない場合には次のように表される\cite{cercignani1988boltzmann}．
 \begin{align}
   \frac{\partial f}{\partial t} &+ \bm{\xi}\cdot\frac{\partial f}{\partial \bm{x}}=J[f], 
     \label{eq:Boltzmann}\\
@@ -56,7 +74,7 @@ $d_m$は気体分子の直径, $\bm{\alpha}$は分子の衝突パラメータ, $
 \end{align}
 によって得られる．
 なお, $\kappa$はボルツマン定数, $m$は分子の質量, $\rho=mn$は気体の密度である．
-今後, 気体は単原子分子の理想気体とする\cite{Asakura2022}と, 気体の圧力 $p$ は
+今後, 気体は単原子分子の理想気体とすると, 気体の圧力 $p$ は
 \begin{equation}
   p = \kappa nT \label{eq:p}
 \end{equation}
@@ -65,26 +83,23 @@ $d_m$は気体分子の直径, $\bm{\alpha}$は分子の衝突パラメータ, $
 
 \begin{figure}[b]
   \centering
-  \begin{subfigure}{0.65\hsize}
+  \begin{subfigure}{0.65\linewidth}
     \centering
-    \includegraphics[width=0.9\hsize]{fig_2-1a.pdf}
+    \includegraphics[width=0.9\linewidth]{example-image-a}
     \captionsetup{skip=0em}
     \subcaption{}
-    \label{fig:Inf_t-Q_Arg}
+    \label{fig:example-image-a}
   \end{subfigure}
-  \begin{subfigure}{0.3\hsize}
+  \begin{subfigure}{0.3\linewidth}
     \centering
-    \includegraphics[width=0.9\hsize]{fig_2-1b.pdf}
+    \includegraphics[width=0.9\linewidth]{example-image-b}
     \captionsetup{skip=0em}
     \subcaption{}
-    \label{fig:Inf_Arg-Q}
+    \label{fig:example-image-b}
   \end{subfigure}
   \captionsetup{skip=-2pt}
   \caption[short caption.]{
-    \begin{minipage}[t]{13em}
-      short caption.\\
-      explanation of figures. 
-    \end{minipage}  
+    Example images whose widths are (a) 0.65 \textbackslash linewidth and (b) 0.3 \textbackslash linewidth, respectively. 
   }
   \label{fig:2-1}
 \end{figure}

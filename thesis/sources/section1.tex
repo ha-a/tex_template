@@ -1,0 +1,53 @@
+% +++
+% sequence = ["latex", "biber", "latex"]
+% [programs.latex]
+% 	command = "lualatex"
+% 	opts = ["-synctex=1", "-file-line-error", "-interaction=nonstopmode"]
+% 	args = ["%S"]
+% [programs.biber]
+% 	command = "biber"
+% 	target = "../ref.bib"
+% 	args = ["--bblencoding=utf8", "-u", "-U", "--output_safechars", "%B"]
+% +++
+
+\documentclass[./main]{subfiles}
+\graphicspath{{\subfix{../figures/section1/}}}
+\setcounter{section}{0}
+
+\begin{document}
+
+\section{First section}
+
+\lipsum[1]
+See \figref{fig:LaTeX_project_logo_bird}\cite{Lamport1994LaTeX}. 
+
+\begin{figure}[b]
+  \centering
+  \begin{minipage}{0.6\linewidth}
+    \centering
+    \includegraphics[width=0.7\linewidth]{LaTeX_project_logo_bird.png}
+    % \rule{0.45\hsize}{0.1\vsize}
+    \figcaption{The \LaTeX\ project's logo.}
+    \label{fig:LaTeX_project_logo_bird}
+  \end{minipage}
+  \begin{minipage}{0.3\linewidth}
+    \centering
+    \tblcaption{排他的論理和}
+    \begin{tabular}{ccc}\bhline{2pt}
+      $X$ & $Y$ & $X\ \mathrm{xor}\ Y$ \\\hline
+      0 & 0 & 0 \\
+      1 & 0 & 1 \\
+      0 & 1 & 1 \\
+      1 & 1 & 0 \\\hline
+    \end{tabular}
+  \end{minipage}
+  
+\end{figure}
+
+
+\ifSubfilesClassLoaded{%
+  \printbibliography
+}{}
+
+
+\end{document}
