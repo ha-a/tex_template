@@ -3,6 +3,10 @@
 % 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt or 20pt
 % aspect ratio can be 16:9 by ``aspectratio=169''
 
+
+\newif\ifSidebar
+\Sidebartrue
+% \Sidebarfalse
 \usepackage{../preamble}
 
 \usepackage{subfiles}
@@ -12,7 +16,7 @@
 %    for this slides %
 %%%%%%%%%%%%%%%%%%%%%%
 
-\graphicspath{{../contents/figures/}}
+\graphicspath{{../figures/}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -31,10 +35,10 @@
 
 
 
-\title[short title]{TITLE}
-\subtitle{SubTitle}
-\author[H.\,Asakura]{Hibiki Asakura}
-\institute[Kyoto]{Kyoto University}
+\title[short title]{T~I~T~L~E}
+\subtitle{Sub Title}
+\author[auth.]{Author Name}
+\institute[insti.]{Institution}
 \date{\today}
 \conference{Conference Name}
 % \id{1030347641}
@@ -53,8 +57,8 @@
   \tableofcontents[hideallsubsections]
 \end{frame}
 
-\subfile{../contents/section1}
-\subfile{../contents/section2}
+\subfile{./section1}
+\subfile{./section2}
 
 \section*{Ref}
 \begin{frame}[t,allowframebreaks,noframenumbering]{\refname}
@@ -62,7 +66,7 @@
 \end{frame}
 
 \beginbackup
-\subfile{../contents/appendix}
+\subfile{./appendix}
 \backupend
 
 \end{document}
