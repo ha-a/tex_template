@@ -20,7 +20,6 @@ templates of
 Note that it may lead to error if you use `\frameagain.` 
 
 ## Note
-- I don't know the reason why VScode presents a lot of warnings which seems to be generated in previous lualatex process when I compile this documents with `interaction=nonstopmode.`
 ### beamer
 - You can choose weather you set sidebar on the left or not by the command `Sidebartrue` or `Sidebarfalse` in `main.tex.`
 - A lot of `Caution "Overfull \hbox"` present. I'm thinking the reason of them are `beamercolorbox` in `head` and `foot.`
