@@ -21,6 +21,6 @@ Note that it may lead to error if you use `\frameagain.`
 
 ## Note
 ### beamer
-- You can choose weather you set sidebar on the left or not by the command `Sidebartrue` or `Sidebarfalse` in `main.tex.`
+- You can choose whether you set sidebar (on the left) or not by the command `Sidebartrue` or `Sidebarfalse` in `main.tex.`
 - A lot of `Caution "Overfull \hbox"` present. I'm thinking the reason of them are `beamercolorbox` in `head` and `foot.`
 
