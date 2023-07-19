@@ -1,51 +1,58 @@
 \documentclass[./main]{subfiles}
 
-\graphicspath{{\subfix{../figures/section1/}}}
-\setcounter{section}{0}
+% \graphicspath{{\subfix{../figures/section1/}}}
 
 \begin{document}
 
-\section[Sec1]{First Section}
-\subsection{Sub 1}
+\setcounter{section}{0}
+\section[Sec 1]{Backgrounds}
 
-\begin{frame}[label=1-1frame]{\subsecname}
-\begin{block}{block title}
-    ブロック環境
-\end{block}
-\begin{alertblock}{alert block title}
-    アラートブロック環境
-\end{alertblock}
-\alert{alert}\ \blert{blert}
-\begin{exampleblock}{example block title}
-    例ブロック環境
-\end{exampleblock}
-\begin{theorem}[theorem title]
-    定理環境
-\end{theorem}
+
+
+
+\subsection{Blocks}
+\begin{frame}
+  \frametitle{\secname\,(1/2) - \subsecname}
+  {\small 
+    \begin{block}<1->{Lorem Ipsum (block)}
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    \end{block}
+
+    \begin{alertblock}<2->{Lorem Ipsum (alert block)}
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    \end{alertblock}
+
+    \begin{exampleblock}<3->{Lorem Ipsum (example block)}
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    \end{exampleblock}
+  }
 \end{frame}
 
-%==============================================================================
-\subsection{Sub 2}
 
-\begin{frame}[label=1-2frame]{Tikz\citep{stein1981estimation}}
-\begin{figure}
-    \centering
-    \begin{tikzpicture}
-        \draw[->,>=stealth,semithick] (-3.3,0)--(3.3,0)node[below]{$x$}; %x軸
-        \draw[->,>=stealth,semithick] (0,-0.5)--(0,3)node[right]{$y$}; %y軸
-        \draw (0,0)node[below right]{$\mathrm{O}$}; %原点
-        \draw[structure.fg,very thick,domain=-3:3,samples=50] plot(\x,{6/sqrt(2*pi)*exp(-pow(\x,2)/2)});
-        \draw (2,2)node{$y=f(x)$};
-    \end{tikzpicture}
-    \caption{function $f(x)$}
-    \label{fig_label}
-\end{figure}
+
+
+\subsection{Emphasize}
+\begin{frame}[containsverbatim]
+  \frametitle{\secname\,(2/2) - \subsecname}
+
+  Neque porro quisquam est qui do\alert{lorem ipsum} quia \blert{dolor sit amet}, \coloredunderline[AlertRed]{consectetur} {\scriptsize \citep{tullius1914finibus}}
+  
+  \begin{verbatim}
+\alert{lorem ipsum} 
+\blert{dolor sit amet}
+\coloredunderlin[AlertRed]{consectetur}
+  \end{verbatim}
+
+  \notecomment{TODO}
+
 \end{frame}
+
+
 
 
 \ifSubfilesClassLoaded{%
   \begin{frame}
-    \bibliography{../ref}
+    \bibliography{../../ref}
   \end{frame}
 }{}
 

@@ -1,51 +1,60 @@
-\documentclass[unicode,12pt]{beamer}% 'unicode'が必要
-% font size can be 
-% 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt or 20pt
-% aspect ratio can be 16:9 by ``aspectratio=169''
+\documentclass[unicode,14pt,aspectratio=169]{beamer}% 'unicode'が必要
+% font size can be 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, or 20pt
+% aspect ratio can be 4:3, 14:9, or 16:9
 
 
 \newif\ifSidebar
 \Sidebartrue
-% \Sidebarfalse
+
+\newif\ifTOCatbegin
+\TOCatbegintrue
+
+
+
 \usepackage{../preamble}
+\setbeamersize{text margin left=10mm,text margin right=10mm}
+
+
 
 \usepackage{subfiles}
 
-%%%%%%%%%%%%%%%%%%%%%%
-% Setting especially %
-%    for this slides %
-%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Specifically for these slides %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \graphicspath{{../figures/}}
+\usetikzlibrary{shapes,arrows,positioning,chains}
+
+\setbeamercovered{transparent=30}
+
+\title[Title on foot]{TITLE: Lorem ipsum dolor sit amet, consectetur adipiscing elit.}
+\subtitle{subtitle}
+\author[A. uthor, et al.]{
+  \textbf{\underline{First Author}}, 
+  Second Author, Third Author (Institution)
+  }
+\date{Day of the week Month Day of the month Year}
+\conference[Conference]{Conference Name}
 
 
-%%%%%%%%%%%%%%%%%%%%%%
-% DEBUG              %
-%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%
+%  DEBUG  %
+%%%%%%%%%%%
 
 \definecolor{cyan}{cmyk}{1,0,0,0}%
 % \usepackage[colorgrid,gridcolor=cyan,subgridcolor=yellow,gridunit=pt,texcoord]{eso-pic}
 
-% \includeonly{
-%   sections/section1,
-%   sections/section2,
-%   sections/appendix,
-% }
 
 
-
-
-\title[short title]{T~I~T~L~E}
-\subtitle{Sub Title}
-\author[auth.]{Author Name}
-\institute[insti.]{Institution}
-\date{\today}
-\conference{Conference Name}
-% \id{1030347641}
 
 
 
 \begin{document}
+
 
 \begin{frame}[noframenumbering]
   \titlepage

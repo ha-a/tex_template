@@ -1,7 +1,7 @@
 
-%%%%%%%%%%%%%%%%%
-% LuaTeX        %
-%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%
+%  LuaTeX  %
+%%%%%%%%%%%%
 
 \usepackage{luatexja}% 日本語したい
 %\usepackage[ipaex]{luatexja-preset}% IPAexフォントしたい
@@ -9,376 +9,383 @@
 
 \usepackage{comment}
 
-%%%%%%%%%%%%%%%%%
-% Font          %
-%%%%%%%%%%%%%%%%%
-
-\usepackage[T1]{fontenc}    % おまじない
-\usepackage{lmodern}        % New Century Schoolbook (cf. 美文書 p240)
-
-% \usepackage{fourier}
-% \usepackage[scaled=0.875]{helvet}
-% \usepackage[scaled]{couriers}
-% \usepackage{mathpazo}
-% \usepackage[utopia]{mathdesign}
-
-\ifSidebar
-    \useoutertheme[hideallsubsections]{sidebar}
-\fi
-\usepackage[scaled]{helvet}
-%\renewcommand{\sfdefault}{phv}
-\renewcommand{\familydefault}{\sfdefault}    % 英文をサンセリフ体に
-\usefonttheme[onlymath]{serif}               % 数式のみセリフ体に
-%\usefonttheme{serif}
-
-\usefonttheme{structurebold}                                        % タイトル部を太字
-\setbeamerfont{title}{size={\fontsize{20}{20}}}                     % タイトル文字サイズ
-\setbeamerfont{subtitle}{size={\fontsize{14}{14}}}                  % サブタイトル文字サイズ
-\setbeamerfont{author}{series=\bfseries,size={\fontsize{17}{17}}}   % 著者文字サイズ・太字
-\setbeamerfont{institute}{size={\fontsize{12}{12}}}                 % 所属文字サイズ
-\setbeamerfont{date}{size={\fontsize{14}{14}}}                      % 日付文字サイズ
-\setbeamerfont{alerted text}{series=\bfseries}                      % Alertを太字
-\setbeamerfont{section in toc}{series=\mdseries,size=\large}        % 目次は太字にしない
-\setbeamerfont{frametitle}{size={\fontsize{17}{17}}}                % フレームタイトル文字サイズ
-\setbeamerfont{title in head/foot}{size={\fontsize{11}{11}}}
-\setbeamerfont{section in head/foot}{size={\fontsize{11}{11}}}
-\setbeamerfont{author in head/foot}{size={\fontsize{11}{11}},family=\ttfamily}
-\setbeamerfont{page in head/foot}{size={\fontsize{14}{14}},family=\ttfamily}
-\setbeamerfont{date in head/foot}{size={\fontsize{11}{11}},family=\ttfamily}
-
-
-%%%%%%%%%%%%%%%%%
-% Font Color    %
-%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+%  Color Definition  %
+%%%%%%%%%%%%%%%%%%%%%%
 
 \definecolor{StructureBlue}{RGB}{0,32,91}               % Structure：KU blue
 \colorlet{MainTextColor}{StructureBlue!50!black}        % 本文カラー：青寄りの黒
 \colorlet{AlertRed}{StructureBlue!20!red}               % Alert：若干青込赤
 \colorlet{BlertColor}{StructureBlue!20!blue}            % Blert
-
-\setbeamercolor{structure}{fg=StructureBlue}            % 見出しカラー
-\setbeamercolor{title}{fg=white, bg=StructureBlue}      
-\setbeamercolor{subtitle}{fg=StructureBlue}
-\setbeamercolor{normal text}{fg=MainTextColor}          % 本文カラー
-
-\setbeamercolor{block title}{fg=white,bg=StructureBlue}
-\setbeamercolor{block body}{parent=normal text,use=block title, bg=block title.bg!10!bg}
-
-\setbeamercolor{alerted text}{fg=AlertRed}              % \alert 文字カラー
-\setbeamercolor{block title alerted}{fg=white,bg=AlertRed!75!black}
-\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted, bg=block title alerted.bg!10!bg}
-
-\setbeamercolor{example text}{fg=StructureBlue}
-\setbeamercolor{block title example}{fg=white,bg=StructureBlue}
-\setbeamercolor{block body example}{parent=normal text,use=block title, bg=block title.bg!10!bg}
-
-\setbeamercolor{gray box}{fg=MainTextColor,bg=gray!50!white}
-
-\setbeamercolor{author in head/foot}{fg=white,bg=StructureBlue!99!white}
-\setbeamercolor{page in head/foot}{fg=white,bg=StructureBlue!66!white}
-\setbeamercolor{date in head/foot}{fg=black,bg=StructureBlue!33!white}
-\setbeamercolor{title in head/foot}{fg=StructureBlue!15!white,bg=StructureBlue!70!white}
-\setbeamercolor{section in head/foot}{fg=StructureBlue!15!white,bg=StructureBlue!70!black}
-
-\setbeamercolor{frametitle}{fg=StructureBlue!80!black,bg=StructureBlue!15!white}
-
-\setbeamercolor{section in toc}{fg=MainTextColor}
-\setbeamercolor{subsection in toc}{fg=MainTextColor}
-
-
-%%%%%%%%%%%%%%%%%
-% Babel         %
-%%%%%%%%%%%%%%%%%
-% 日本語の場合のみ・英語の場合は不要
-
-\uselanguage{japanese}
-\languagepath{japanese}
-\deftranslation[to=japanese]{Theorem}{定理}
-\deftranslation[to=japanese]{Lemma}{補題}
-\deftranslation[to=japanese]{Example}{例}
-\deftranslation[to=japanese]{Examples}{例}
-\deftranslation[to=japanese]{Definition}{定義}
-\deftranslation[to=japanese]{Definitions}{定義}
-\deftranslation[to=japanese]{Problem}{問題}
-\deftranslation[to=japanese]{Solution}{解}
-\deftranslation[to=japanese]{Fact}{事実}
-\deftranslation[to=japanese]{Proof}{証明}
-\def\proofname{証明}
-\usepackage{latexsym}       % 証明終のマーク
-\def\qed{\hfill $\Box$}
-
-\setbeamertemplate{theorems}[numbered]  % 定理に番号をつける
-% \newtheorem{thm}{Theorem}[section]
-
-%%%%%%%%%%%%%%%%%%%%%
-% beamer template   %
-%%%%%%%%%%%%%%%%%%%%%
-
-\setbeamertemplate{navigation symbols}{}        % 下の変なマークたちを消す
-\setbeamertemplate{enumerate item}[default]     % 単純な数字に
-\setbeamertemplate{itemize item}[triangle]      % 三角形に
-\setbeamertemplate{section in toc}[square]      % 四角形に
-\setbeamertemplate{subsection in toc}[square]
-\setbeamertemplate{blocks}[rounded]             % block は角丸
-
-% margin settings
-\setbeamersize{text margin left=6mm,text margin right=6mm}
-
-\setbeamercovered{transparent}
-
-%%%%%%%%%%%%%%%%%%%%%
-% title page        %
-%%%%%%%%%%%%%%%%%%%%%
-
-\makeatletter
-\def\conference#1{\def\@conference{#1}}
-\def\id#1{\def\@id{#1}}
-\usepackage{ifthen}
-
-\setbeamertemplate{title page}{
-    \vbox{}
-    \vfill
-    \begingroup
-    \centering
-
-    \ifthenelse{\isundefined{\@conference}}{}{
-        \begin{beamercolorbox}[sep=0pt,center]{institute}
-            {\fontsize{14}{14}\selectfont \@conference \par} 
-        \end{beamercolorbox}
-        \vskip.5em
-    }
-    
-    \hfill
-    \begin{beamercolorbox}%
-        [rounded=true,sep=1mm,shadow=true,wd=.8\hsize,center]%
-        {block title}
-            {\usebeamerfont{title}\inserttitle\par}
-    \end{beamercolorbox}
-    \hspace*{\fill}
-
-    \ifx\insertsubtitle\@empty
-    \else
-        \vskip.3em%
-        \begin{beamercolorbox}[sep=0pt,center]{author}
-            {\usebeamerfont{subtitle}\insertsubtitle\par}%
-        \end{beamercolorbox}
-    \fi%
-    \vskip1.5em
-
-    \begin{beamercolorbox}[sep=8pt,center]{date}
-        \usebeamerfont{date}\underline{\insertdate}
-    \end{beamercolorbox}
-    \vskip1.5em
-    
-    \begin{beamercolorbox}[sep=8pt,center]{institute}
-        \usebeamerfont{institute}\insertinstitute
-    \end{beamercolorbox}
-
-    \ifthenelse{\isundefined{\@id}}{
-        \begin{beamercolorbox}[sep=0pt,center]{author}
-            \usebeamerfont{author}\insertauthor
-        \end{beamercolorbox}
-    }{
-        \begin{beamercolorbox}[sep=0pt,center]{author}
-            {\small Student No.~\@id}\hspace{5pt}\usebeamerfont{author}\insertauthor
-        \end{beamercolorbox}
-    }
-    
-    \vskip0.5em
-    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
-    
-    \endgroup
-    \vfill
-    
-}
-\makeatother
-
-
-%%%%%%%%%%%%%%%%%%%%%
-% Table of Contents %
-%%%%%%%%%%%%%%%%%%%%%
-
-\AtBeginSection[]{      % section が始まる毎に目次表示
-% \ifnum \insertsectionnumber = [section number+1]  % 特定の section 前の目次
-%     \begin{frame}
-%         \tableofcontents[currentsection,hideothersubsections]
-%         \centering
-%         特定の章前の目次で特別ななにかを記述したければここ
-%         使うときは下の \verb|\|\texttt{fi} に挟まれた \verb|%| も外すんだよ
-%     \end{frame}
-% \else{
-\ifnum \insertframenumber > \inserttotalframenumber   % Appendix 目次
-    \begin{frame}[noframenumbering]{Table of Contents}
-        % 現 section
-        %     - subsection
-        % 他 section (shaded)
-        % \tableofcontents[currentsection,hideothersubsections]
-        \tableofcontents[currentsection,hideothersubsections,firstsection=3]
-            % Appendix の section は本編の通し番号
-            % firstsection=[本編 last section number + 1]
-        % 現 section
-        % 他 section (shaded)
-        % \tableofcontents[sectionstyle=show/shaded,hideallsubsections,firstsection=5]
-    \end{frame}
-\else
-    \begin{frame}[noframenumbering]{Table of Contents}
-        % 現 section
-        %     - subsection
-        % 他 section (shaded)
-        \tableofcontents[currentsection,hideothersubsections]
-
-        % 現 section
-        % 他 section (shaded)
-        % \tableofcontents[sectionstyle=show/shaded,hideallsubsections]
-    \end{frame}
-\fi
-% }
-% \fi
-}
-
-%%%%%%%%%%%%%%%%%%%%%
-% head/foot         %
-%%%%%%%%%%%%%%%%%%%%%
-
-\defbeamertemplate*{headline}{titlehead theme}
-{
-\ifnum \insertpagenumber=1  % 表紙ヘッダー枠のみ
-    \leavevmode%
-    \hbox{%
-        \begin{beamercolorbox}[wd=.5\paperwidth, ht=13pt]{title in head/foot}%
-        \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.5\paperwidth, ht=13pt]{section in head/foot}%
-        \end{beamercolorbox}%
-    }%
-    \vskip0pt%
-\else{\ifnum \insertframenumber > \inserttotalframenumber   % Appendix ヘッダー
-    \leavevmode             % title | Appendices / section
-    \hbox{%
-        \begin{beamercolorbox}[wd=.5\paperwidth , ht=11pt, dp=2pt, right, rightskip=15pt]{title in head/foot}%
-            \usebeamerfont{title in head/foot}\insertshorttitle
-        \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.5\paperwidth , ht=11pt,dp=2pt, left, leftskip=15pt]{section in head/foot}%
-            \usebeamerfont{section in head/foot}Appxs. / \insertsection
-        \end{beamercolorbox}%
-    }%
-    \vskip0pt%
-\else                       % 表紙以外は title | section
-    \leavevmode%
-    \hbox{%
-        \begin{beamercolorbox}[wd=.5\paperwidth , ht=11pt, dp=2pt, right, rightskip=15pt]{title in head/foot}%
-            \usebeamerfont{title in head/foot}\insertshorttitle
-        \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.5\paperwidth , ht=11pt,dp=2pt, left, leftskip=15pt]{section in head/foot}%
-            \usebeamerfont{section in head/foot}\insertsection
-        \end{beamercolorbox}%
-    }%
-    \vskip0pt%
-\fi}\fi
-}
-\setbeamertemplate{headline}[titlehead]
-
-
-\defbeamertemplate*{footline}{titlefoot theme}
-{
-\ifnum \insertpagenumber=1  % 表紙フッター枠のみ
-    \leavevmode%
-    \hbox{%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=13pt]{author in head/foot}%
-        \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=13pt]{page in head/foot}%
-        \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=13pt]{date in head/foot}%
-        \end{beamercolorbox}
-    }%
-    \vskip0pt%
-\else            % 表紙以外のページは 著者(所属) | ページ数/総ページ数 | 日付
-    \leavevmode%
-    \hbox{%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=11pt, dp=2pt, center]{author in head/foot}%
-            \usebeamerfont{author in head/foot}
-            \insertshortauthor\ (\insertshortinstitute)
-        \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=11pt, dp=2pt, center]{page in head/foot}%
-            \usebeamerfont{page in head/foot}
-            \insertframenumber\,/\,\inserttotalframenumber
-        \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.3333\paperwidth, ht=11pt, dp=2pt, center]{date in head/foot}%
-            \usebeamerfont{date in head/foot}
-            \insertshortdate
-        \end{beamercolorbox}
-    }%
-    \vskip0pt%
-\fi
-}
-\setbeamertemplate{footline}[titlefoot]
-
-
-%%%%%%%%%%%%%%%%%%%%%
-% Frame Title       %
-%%%%%%%%%%%%%%%%%%%%%
-
-\setbeamercolor{blackbox}{fg=white, bg=black}
-\makeatletter
-\defbeamertemplate*{frametitle}{myownframetitle}[1][left]
-{
-    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
-    \@tempdima=\textwidth%
-    \advance\@tempdima by\beamer@leftmargin%
-    \advance\@tempdima by\beamer@rightmargin%
-    \begin{beamercolorbox}[ht=15pt,dp=3pt,wd=\the\@tempdima,leftskip=10pt]{frametitle}
-        \usebeamerfont{frametitle}%
-        \strut\insertframetitle\strut\par%
-    \end{beamercolorbox}%
-    \vskip-13.5pt
-    \begin{beamercolorbox}[ht=.5pt,wd=\the\@tempdima]{blackbox}
-    \end{beamercolorbox}%
-}
-\makeatother
+\colorlet{ExampleGreen}{StructureBlue!40!green}         % Example：若干青込緑
 
 
 
-%%%%%%%%%%%%%%%%%%%%%
-% Sidebar           %
-%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+%  Sidebar  %
+%%%%%%%%%%%%%
 
 \ifSidebar
-    \setbeamersize{sidebar width left=0.08\paperwidth}
+    \useoutertheme[hideallsubsections]{sidebar}
+    \setbeamersize{sidebar width left=0.07\paperwidth}
     \setbeamerfont{section in sidebar}{size=\fontsize{9}{9}}
     \setbeamercolor{sidebar}{use=author in head/foot, bg=author in head/foot.bg}
     \setbeamercolor{palette sidebar secondary}{fg=white}
     \setbeamercolor{section in sidebar shaded}{fg=StructureBlue!50!white}
     \setbeamertemplate{sidebar canvas left}[vertical shading][top=StructureBlue!99!white,bottom=StructureBlue!70!white]
+
     \makeatletter
-    \setbeamertemplate{sidebar left}
-    {
-        \ifnum \insertpagenumber=1  % 表紙ヘッダー枠のみ
-        \else  
-        \beamer@tempdim=\beamer@sidebarwidth%
-        \advance\beamer@tempdim by -6pt%
-        \vfill
-        % \insertsectionnavigation{\beamer@sidebarwidth}%
-        \insertverticalnavigation{\beamer@sidebarwidth}%
-        \vfill
-        \ifx\beamer@sidebarside\beamer@lefttext%
-        \else%
-            \usebeamercolor{normal text}%
-            \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
-            \vskip2pt%
-        \fi%
-        \fi
-    }%
+        \setbeamertemplate{sidebar left}
+        {
+            \ifnum \insertpagenumber=1  % 表紙ヘッダー枠のみ
+            \else  
+                \beamer@tempdim=\beamer@sidebarwidth%
+                \advance\beamer@tempdim by -6pt%
+                \vfill
+                \insertverticalnavigation{\beamer@sidebarwidth}%
+                \vfill
+                \ifx\beamer@sidebarside\beamer@lefttext%
+                \else%
+                    \usebeamercolor{normal text}%
+                    \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+                    \vskip2pt%
+                \fi%
+            \fi
+        }%
     \makeatother
 \fi
 
 
+
+
+%%%%%%%%%%%%%%%%%
+%  Font Family  %
+%%%%%%%%%%%%%%%%%
+
+
+\usepackage[T1]{fontenc}    % おまじない: 欧文フォントのエンコーディングを指定
+\usepackage{fontspec}       % for LuaLaTeX (or XeLaTeX), システム上のフォント利用
+
+\renewcommand{\familydefault}{\sfdefault}    % 英文をサンセリフ体に
+\usefonttheme[onlymath]{serif}               % 数式のみセリフ体に
+
+% use Latin Modern (default: Computer Modern)
+\usepackage{lmodern}
+
+\setsansfont{Clear Sans} % sans-serif font
+\usepackage{setspace}
+\setstretch{1.1}         % 行間設定
+
+
+
+
+%%%%%%%%%%%%%%%
+%  Font Size  %
+%%%%%%%%%%%%%%%
+
+\usefonttheme{structurebold}                                        % タイトル部を太字
+\setbeamerfont{title}     {size={\fontsize{17}{18}}, series=\bfseries}                % タイトル文字サイズ
+\setbeamerfont{subtitle}  {size={\fontsize{14}{14}}}                % サブタイトル文字サイズ
+\setbeamerfont{author}    {size={\fontsize{12}{12}}}                % 著者文字サイズ・太字
+\setbeamerfont{institute} {size={\fontsize{12}{12}}}                % 所属文字サイズ
+\setbeamerfont{date}      {size={\fontsize{14}{14}}}                % 日付文字サイズ
+\setbeamerfont{conference}{size={\fontsize{14}{14}}}
+
+\setbeamerfont{section in toc}{series=\mdseries,size=\large}        % 目次は太字にしない
+\setbeamerfont{frametitle}    {size={\fontsize{17}{17}}}            % フレームタイトル文字サイズ
+\setbeamerfont{alerted text}  {series=\bfseries}                    % Alertを太字
+
+\setbeamerfont{title in head/foot}  {series=\mdseries, size={\fontsize{7}{7}}}
+\setbeamerfont{section in head/foot}{size={\fontsize{11}{11}}}
+\setbeamerfont{author in head/foot} {size={\fontsize{7}{7}},  family=\ttfamily}
+\setbeamerfont{page in head/foot}   {size={\fontsize{10}{10}},family=\ttfamily}
+\setbeamerfont{date in head/foot}   {size={\fontsize{8}{8}}}%,family=\ttfamily}
+
+
+
+%%%%%%%%%%%%%%%%
+%  Font Color  %
+%%%%%%%%%%%%%%%%
+
+\setbeamercolor{structure}   {fg=StructureBlue}           % 見出しカラー
+\setbeamercolor{title}       {fg=white, bg=StructureBlue} 
+\setbeamercolor{subtitle}    {fg=StructureBlue}           
+\setbeamercolor{normal text} {fg=MainTextColor}           % 本文カラー
+\setbeamercolor{alerted text}{fg=AlertRed}                % Alertカラー
+
+% block environment
+\setbeamercolor{block title}{fg=white,bg=StructureBlue}
+\setbeamercolor{block body} {parent=normal text, use=block title, bg=block title.bg!10!bg}
+
+% alert block environment
+\setbeamercolor{block title alerted}{fg=white,bg=AlertRed!75!black}
+\setbeamercolor{block body alerted}{parent=normal text, use=block title alerted, bg=block title alerted.bg!10!bg}
+
+% example block environment
+\setbeamercolor{block title example}{fg=white, bg=ExampleGreen!75!black}
+\setbeamercolor{block body example}{parent=normal text, use=block title example, bg=block title example.bg!10!bg}
+
+\setbeamercolor{gray box}{fg=MainTextColor,bg=gray!50!white}
+
+\setbeamercolor{author in head/foot} {fg=white, bg=StructureBlue!99!white}
+\setbeamercolor{page in head/foot}   {fg=white, bg=StructureBlue!66!white}
+\setbeamercolor{date in head/foot}   {fg=black, bg=StructureBlue!33!white}
+\setbeamercolor{title in head/foot}  {fg=StructureBlue!15!white, bg=StructureBlue!70!white}
+\setbeamercolor{section in head/foot}{fg=StructureBlue!15!white, bg=StructureBlue!70!black}
+
+\setbeamercolor{foot left}  {fg=white, bg=StructureBlue!99!white}
+\setbeamercolor{foot center}{fg=white, bg=StructureBlue!66!white}
+\setbeamercolor{foot right} {fg=black, bg=StructureBlue!33!white}
+
+% \setbeamercolor{frametitle}{fg=StructureBlue!80!black,bg=StructureBlue!15!white}
+\setbeamercolor{frametitle}{fg=white, bg=StructureBlue}
+
+\setbeamercolor{section in toc}   {fg=MainTextColor}
+\setbeamercolor{subsection in toc}{fg=MainTextColor}
+
+
+
+
+%%%%%%%%%%%
+%  Babel  %
+%%%%%%%%%%%
+% 日本語の場合のみ・英語の場合は不要
+
+% \uselanguage{japanese}
+% \languagepath{japanese}
+% \deftranslation[to=japanese]{Theorem}{定理}
+% \deftranslation[to=japanese]{Lemma}{補題}
+% \deftranslation[to=japanese]{Example}{例}
+% \deftranslation[to=japanese]{Examples}{例}
+% \deftranslation[to=japanese]{Definition}{定義}
+% \deftranslation[to=japanese]{Definitions}{定義}
+% \deftranslation[to=japanese]{Problem}{問題}
+% \deftranslation[to=japanese]{Solution}{解}
+% \deftranslation[to=japanese]{Fact}{事実}
+% \deftranslation[to=japanese]{Proof}{証明}
+% \def\proofname{証明}
+
+% \newtheorem{thm}{Theorem}[section]
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%
-% Figure/Table      %
+%  beamer template  %
 %%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{theorems}[numbered]            % 定理に番号をつける
+\setbeamertemplate{navigation symbols}{}          % 下の変なマークたちを消す
+\setbeamertemplate{enumerate item}[default]       % enumerate は単純な数字
+\setbeamertemplate{itemize item}[triangle]        % itemize は三角形
+\setbeamertemplate{section in toc}[square]        % toc は四角形
+\setbeamertemplate{subsection in toc}[square]
+\setbeamertemplate{blocks}[rounded][shadow=true]  % block は角丸・影つき
+
+\setbeamercovered{transparent}  % overlay は半透明
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%
+%  title page  %
+%%%%%%%%%%%%%%%%
+
+\makeatletter
+\newcommand{\conference}[2][]{%
+    \def\@shortconference{#1}%
+    \def\@conference{#2}%
+    \ifx\@shortconference\@empty
+        \def\@shortconference{\@conference}%
+    \fi%
+    \newcommand{\insertconference}{\@conference}%
+    \newcommand{\insertshortconference}{\@shortconference}%
+}
+\newcommand{\id}[1]{%
+    \def\@id{#1}%
+    \newcommand{\insertid}{\@id}%
+}
+\makeatother
+
+
+\setbeamertemplate{title page}{
+    \vfill
+    \begingroup
+        
+        \centering
+
+        \ifx\insertconference\empty
+        \else
+            \begin{beamercolorbox}[sep=0pt,center]{normal text}
+                {\usebeamerfont{conference} \insertconference \par} 
+            \end{beamercolorbox}
+            \vskip.5em
+        \fi
+        
+        \hspace*{\fill}
+        \begin{beamercolorbox}[rounded=true,sep=3mm,shadow=true,wd=.8\linewidth,center]{title}
+            {\usebeamerfont{title}\inserttitle\par}
+        \end{beamercolorbox}
+        \hspace*{\fill}
+
+        \ifx\insertsubtitle\empty
+        \else
+            \vskip.3em%
+            \begin{beamercolorbox}[sep=0pt,center]{normal font}
+                {\usebeamerfont{subtitle}\insertsubtitle\par}%
+            \end{beamercolorbox}
+        \fi%
+        \vskip.5em
+
+        \begin{beamercolorbox}[sep=8pt,center]{normal font}
+            \usebeamerfont{date}\underline{\insertdate}
+        \end{beamercolorbox}
+        \vskip.5em
+        
+        \begin{beamercolorbox}[sep=0pt,center]{author}
+            \usebeamerfont{author}\insertauthor
+        \end{beamercolorbox}
+        
+    \endgroup
+    \vfill
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%  Table of Contents  %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifTOCatbegin
+    \AtBeginSection[]{      % section が始まる毎に目次表示
+        \ifnum \insertframenumber > \inserttotalframenumber   % Appendix 目次
+            \begin{frame}[noframenumbering]{Table of Contents}
+                % 現 section
+                %     - subsection
+                % 他 section (shaded)
+                \tableofcontents[currentsection,hideothersubsections,firstsection=3]
+                    % Appendix の section は本編の通し番号
+                    % firstsection=[本編 last section number + 1]
+                % 現 section
+                % 他 section (shaded)
+                % \tableofcontents[sectionstyle=show/shaded,hideallsubsections,firstsection=5]
+            \end{frame}
+        \else
+            \begin{frame}[noframenumbering]{Table of Contents}
+                % 現 section
+                %     - subsection
+                % 他 section (shaded)
+                \tableofcontents[currentsection,hideothersubsections]
+
+                % 現 section
+                % 他 section (shaded)
+                % \tableofcontents[sectionstyle=show/shaded,hideallsubsections]
+            \end{frame}
+        \fi
+    }
+\fi
+
+
+
+
+%%%%%%%%%%%%%%%
+%  head/foot  %
+%%%%%%%%%%%%%%%
+
+\setbeamertemplate{headline}{
+    \ifnum \insertpagenumber=1  % 表紙フッター枠のみ
+        \leavevmode%
+        \hbox{%
+            \begin{beamercolorbox}[wd=\paperwidth, ht=8pt, dp=1pt, center]{title}%
+            \end{beamercolorbox}%
+        }%
+    \fi
+}
+
+
+\newcommand{\footRightWidth}{0.15\paperwidth}
+\newcommand{\footCenterWidth}{0.70\paperwidth}
+\newcommand{\footLeftWidth}{0.15\paperwidth}
+\newcommand{\footHeightTitle}{9pt}
+\newcommand{\footHeight}{8pt}
+\newcommand{\footDepth}{1pt}
+
+\setbeamertemplate{footline}{
+    \ifnum \insertpagenumber=1  % 表紙フッター枠のみ
+        \leavevmode%
+        \hbox{%
+            \begin{beamercolorbox}[wd=\footLeftWidth,   ht=\footHeightTitle]{foot left}  \end{beamercolorbox}%
+            \begin{beamercolorbox}[wd=\footCenterWidth, ht=\footHeightTitle]{foot center}\end{beamercolorbox}%
+            \begin{beamercolorbox}[wd=\footRightWidth,  ht=\footHeightTitle]{foot right} \end{beamercolorbox}%
+        }%
+    \else
+        \leavevmode%
+        \hbox{%
+            \begin{beamercolorbox}
+                [wd=\footLeftWidth,   ht=\footHeight, dp=\footDepth, center]{foot left}%
+                \usebeamerfont{conference in head/foot}
+                \insertshortconference
+            \end{beamercolorbox}%
+            \begin{beamercolorbox}
+                [wd=\footCenterWidth, ht=\footHeight, dp=\footDepth, center]{foot center}%
+                \usebeamerfont{title in head/foot}
+                \insertshorttitle\ (\insertshortauthor)
+            \end{beamercolorbox}%
+            \begin{beamercolorbox}
+                [wd=\footRightWidth,  ht=\footHeight, dp=\footDepth, center]{foot right}%
+                \usebeamerfont{page in head/foot}
+                \insertframenumber\,/\,\inserttotalframenumber
+            \end{beamercolorbox}
+        }%
+    \fi
+}
+
+
+
+
+%%%%%%%%%%%%%%%%%
+%  Frame Title  %
+%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{frametitle}{
+    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+    \begin{beamercolorbox}[ht=15pt,dp=3pt,wd=\paperwidth,leftskip=10pt]{frametitle}
+        \usebeamerfont{frametitle}%
+        \strut\insertframetitle\strut\par%
+    \end{beamercolorbox}%
+    \vskip-13.5pt
+    \begin{beamercolorbox}[ht=.5pt,wd=\paperwidth]{frametitle}\end{beamercolorbox}%
+}
+
+\newcounter{cont}
+\makeatletter
+% allowframebreaks numbering in the title
+\setbeamertemplate{frametitle continuation}{%
+    \setcounter{cont}{\beamer@endpageofframe}%
+    \addtocounter{cont}{1}%
+    \addtocounter{cont}{-\beamer@startpageofframe}%
+    (\insertcontinuationcount/\arabic{cont})%
+}
+\makeatother
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%
+%  Figure/Table  %
+%%%%%%%%%%%%%%%%%%
 
 \usepackage{graphicx}
 
 % 任意の場所に画像挿入
 \usepackage[absolute,overlay]{textpos} 
+
 
 % tikz グラフ描画
 \usepackage{tikz}
@@ -387,7 +394,9 @@
 \usepackage{multirow}               % 縦に結合
 \renewcommand{\arraystretch}{1.2}   % 高さを少し広く
 
+\setlength{\arrayrulewidth}{1pt}
 \newcommand{\bhline}[1]{\noalign{\hrule height #1}}
+
 
 % 図と表を並べるときにうまくキャプションを付ける
 \makeatletter
@@ -400,11 +409,8 @@
     format=hang,
     labelformat=empty
 }
-
 \usepackage{subcaption}
 
-\newcommand\figref[1]{\textbf{Figure~\ref{#1}}}
-\newcommand\tabref[1]{\textbf{Table~\ref{#1}}}
 
 % 擬似コード記述
 \usepackage{algorithmic}
@@ -414,9 +420,17 @@
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
 
 
-%%%%%%%%%%%%%%%%%%%%%
-% Math Environment  %
-%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%  Math Environment  %
+%%%%%%%%%%%%%%%%%%%%%%
+
+% amsmath: 数学関連の機能を拡張   (ex. \frac, \sqrt)
+% amsfont: 数学用のフォントを追加 (ex. \mathbb, \mathcal)
+% amsthm:  数学用の定理環境を追加 (ex. \newtheorem)
+\usepackage{amsmath,amsfonts,amsthm,bm}
 
 % 数式(演算子など)のスペースを詰める
 \thickmuskip = 1.2\thickmuskip   % =,→ 間の余白
@@ -435,9 +449,11 @@
 \newcommand{\diff}{\mathrm{d}}
 
 
-%%%%%%%%%%%%%%%%%%%%%
-% citation          %
-%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%
+%  Citation  %
+%%%%%%%%%%%%%%
 
 \usepackage[square,authoryear,sort]{natbib}
 \setcitestyle{square,aysep={},citesep={,}}  % [名前 年, 名前 年]
@@ -445,6 +461,9 @@
 
 \renewcommand{\refname}{References}
 \renewcommand{\bibsection}{}
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%
 % Appendix          %
@@ -460,34 +479,56 @@
    \addtocounter{framenumbervorappendix}{-\value{framenumber}}
    \addtocounter{framenumber}{\value{framenumbervorappendix}}
 }
-
 \renewcommand{\appendixname}{Appendices}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%
 % functions         %
 %%%%%%%%%%%%%%%%%%%%%
 
+
+
+
+\renewcommand<>{\alert}[1]{%
+    \ifmmode\text{%
+        \begin{alertenv}#2\relax$#1$\end{alertenv}%
+    }\else%
+        \begin{alertenv}#2\relax#1\end{alertenv}%
+    \fi%
+}
+
+
+
 % comment 機能
 \newcommand{\notecomment}[1]{\centering\framebox{\color{magenta}{\textbf{\textit{#1}}}}}
 % 弱強調 機能
 \newcommand{\blert}[1]{{\color{BlertColor}\textbf{{#1}}}}
-% 赤いアンダーライン
-\newcommand{\redunderline}[1]{\textcolor{AlertRed}{\underline{\textcolor{MainTextColor}{#1}}}}
+
+\usepackage[normalem]{ulem}
+\renewcommand{\ULthickness}{1.5pt}
+
+\newcommand{\redunderline}[1]{\textcolor{AlertRed}{\uline{\textcolor{MainTextColor}{#1}}}}
+\newcommand{\coloredunderline}[2][MainTextColor]{\textcolor{#1}{\uline{\textcolor{MainTextColor}{#2}}}}
 
 % 縦に埋める空白
 \newcommand{\vfilll}{\vskip 0pt plus 1filll}
 
 % 脚注を ＊1 にする
-\renewcommand{\thefootnote}{$\ast$\arabic{footnote}}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{bm}
 \usepackage{ascmac} % screen/itembox/shadebox
 \usepackage{xcolor}
 
+\usepackage{standalone}
+
+\setlength{\leftmargini}{2em}
+\setlength{\leftmarginii}{1.7em}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

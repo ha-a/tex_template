@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+
+\newcommand{\drawClock}[2]{%
+  \begin{tikzpicture}
+    \draw[very thick] (0,0) circle (2cm);%時計の外周
+    \draw[fill] (0,0) circle (0.1cm);%中心点
+    \foreach \angle / \label in {0/3, 30/2, 60/1, 90/12, 120/11, 150/10, 180/9, 210/8, 240/7, 270/6, 300/5, 330/4} { 
+      \draw (\angle:1.8cm) -- (\angle:2cm); 
+      \node at (\angle:1.5cm) {\textsf{\label}}; 
+    } 
+    \foreach \angle in {0,90,180,270} 
+       \draw[thick] (\angle:1.7cm) -- (\angle:2cm); 
+    \draw[line width=3pt, cap=round] (0,0) -- ($(-#1*30-#2*0.5+90:0.8cm)$);%短針
+    \draw[line width=3pt, cap=round] (0,0) -- ($(-#2*6+90:1.2cm)$);%長針
+  \end{tikzpicture}%
+}
+
+
+\drawClock{14}{46}
+\hspace{50pt}
+\drawClock{0}{33}
+
+\end{document}
